@@ -297,7 +297,7 @@ function Home() {
           <div className="flex flex-wrap gap-5 justify-center px-4">
             {loading ? (
               <div className="text-4xl font-bold text-green-800 my-10">
-                Loading...
+                Loading Products...
               </div>
             ) : (
               productData.map(function ({
