@@ -14,10 +14,15 @@ const mongoURI =
 const multer = require('multer');
 const schoolRoute = require('./routes/schoolRoute');
 // Middleware to parse JSON bodies
+const allowedOrigins = [
+  'https://rrr-frontend-iota.vercel.app',
+  'http://localhost:5173',
+];
+
 app.use(
   cors({
-    origin: 'https://rrr-frontend-iota.vercel.app',
-    credentials: true, // Only allow this specific origin
+    origin: allowedOrigins,
+    credentials: true,
   })
 );
 app.use(express.urlencoded({ extended: true }));
