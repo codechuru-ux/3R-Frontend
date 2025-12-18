@@ -21,7 +21,7 @@ const DetailCard = ({ detailCard }) => {
   });
   return (
     <div
-      className={`hidden fixed top-[15vh] left-[15vw] min-h-3/4 opacity-0 max-w-6xl cardOfDetailProduct w-[80vw] lg:min-w-96 lg:gap-11  border-4 rounded-4xl bg-linear-to-b  flex-col lg:flex-row bg-[#f0f8ef] p-10  items-center  overflow-y-auto gap-4 z-50`}
+      className={`hidden fixed top-0 bottom-0 right-0 left-0 lg:top-[5vh] lg:left-[5vw] lg:bottom-[5vh] lg:right-0 xl:left-[14vh] 2xl:left-[25vh] min-h-3/4 opacity-0 max-w-6xl cardOfDetailProduct lg:w-[80vw] lg:min-w-96 lg:gap-11  border-4 rounded-4xl bg-linear-to-b  flex-col lg:flex-row bg-[#f0f8ef] p-10  items-center  overflow-y-auto gap-4 z-50`}
     >
       <ImCross onClick={fun} className="absolute top-5 left-6 cursor-pointer text-4xl " />
       <div className="items-center flex flex-col gap-8 max-w-1/2">
