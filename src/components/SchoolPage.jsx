@@ -39,7 +39,7 @@ export default function SchoolPage() {
       <div className="border-2 border-green-800 max-w-screen max-h-fit md:max-w-fit grow xl:border-none xl:bg-transparent bg-white rounded-4xl">
         <div className="xl:flex-row p-10 items-center gap-8 flex flex-col justify-between min-w-full">
         <div className="border-3 max-w-screen border-green-800 md:max-w-3xl shrink xl:w-fit rounded-xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-700">
-        <img className="rounded-lg" src={selectedSchool?.schoolImage ? `http://localhost:3000/${selectedSchool.schoolImage}` : '/images/placeholder-school.png'} alt="school image" />
+        <img className="rounded-lg" src={selectedSchool?.schoolImage ? `https://rrr-backend-yckw.onrender.com/${selectedSchool.schoolImage}` : '/images/placeholder-school.png'} alt="school image" />
       </div>
       <div className="md:text-4xl flex flex-col max-w-full gap-4 font-serif bg-white px-8 py-3 rounded-xl xl:w-fit shadow-xl md:min-w-2xl hover:shadow-2xl hover:scale-105 transition-all duration-700">
         <h1 className="text-green-800"><span className="text-black">School Name: </span>{selectedSchool?.schoolName}</h1>
