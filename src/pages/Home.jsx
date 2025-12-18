@@ -13,27 +13,36 @@ import { getAllSchool } from "../components/form/api";
 
 function Home() {
   const [productData, setproductData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const selectedSchool = useRef([]);
 
   const schoolName = localStorage.getItem("schoolName");
   useEffect(() => {
-    getAllSchool().then((res) => {
-      console.log(res);
-      const selectedSchoolArr = res.filter(
-        (item) => item.schoolName === schoolName
-      );
-      selectedSchool.current = selectedSchoolArr[0];
-      console.log(selectedSchoolArr[0]);
-    });
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const schools = await getAllSchool();
+        const selectedSchoolArr = schools.filter(
+          (item) => item.schoolName === schoolName
+        );
+        const currentSchool = selectedSchoolArr[0];
+        selectedSchool.current = currentSchool;
 
-    getProducts().then((data) => {
-      let product = data.filter(
-        (item) => item.school == selectedSchool.current._id
-      );
+        if (currentSchool) {
+          const allProducts = await getProducts();
+          const schoolProducts = allProducts.filter(
+            (item) => item.school === currentSchool._id
+          );
+          setproductData(schoolProducts);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-      setproductData(product);
-      console.log(product, data, selectedSchool.current._id);
-    });
+    fetchData();
   }, []);
 
   const dummyData = useContext(AllProductsData);
@@ -286,29 +295,34 @@ function Home() {
           </div>
 
           <div className="flex flex-wrap gap-5 justify-center px-4">
-
-            {productData.map(function ({
-              category,
-              availability,
-              title,
-              thumbnail,
-              schoolName,
-              _id,
-            }) {
-              return (
-                <Item
-                  category={category}
-                  name={title}
-                  imgUrl={`http://localhost:3000/${thumbnail}`}
-                  schoolName={schoolName}
-                  key={_id}
-                  id={_id}
-                  goodsData={dummyData}
-                  handleClick={handleClick}
-                  availability={availability ? "Available" : "Unavailable"}
-                />
-              );
-            })}
+            {loading ? (
+              <div className="text-4xl font-bold text-green-800 my-10">
+                Loading...
+              </div>
+            ) : (
+              productData.map(function ({
+                category,
+                availability,
+                title,
+                thumbnail,
+                schoolName,
+                _id,
+              }) {
+                return (
+                  <Item
+                    category={category}
+                    name={title}
+                    imgUrl={`http://localhost:3000/${thumbnail}`}
+                    schoolName={schoolName}
+                    key={_id}
+                    id={_id}
+                    goodsData={dummyData}
+                    handleClick={handleClick}
+                    availability={availability ? "Available" : "Unavailable"}
+                  />
+                );
+              })
+            )}
           </div>
         </div>
       </div>
