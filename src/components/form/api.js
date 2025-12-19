@@ -1,13 +1,13 @@
 import axios from 'axios';
 
 axios.defaults.withCredentials = true;
-axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+axios.defaults.headers.common['authorization'] = 'Bearer ' + localStorage.getItem('token');
 
 
 export function postProduct(data) {
   return axios
     .post('https://rrr-frontend-1.onrender.com/product', data, {
-      headers: { 'Content-Type': 'multipart/form-data', 'Authorization': 'Bearer ' + localStorage.getItem('token') },
+      headers: { 'Content-Type': 'multipart/form-data', 'authorization': 'Bearer ' + localStorage.getItem('token') },
     })
     .then((response) => {
       console.log('API response', response.data);
