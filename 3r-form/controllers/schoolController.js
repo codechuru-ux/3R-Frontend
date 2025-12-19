@@ -1,6 +1,8 @@
 const School = require('../models/school');
 const bycrypt = require('bcryptjs');
 const Product = require('../models/product');
+const jwt = require('jsonwebtoken');
+
 
 exports.postSchoolRegister = (req, res, next) => {
     const { schoolName, subDistrict, password, schoolEmail, schoolPhone, address, inchargeName, inchargePhone } = req.body;
@@ -30,14 +32,26 @@ exports.postSchoolRegister = (req, res, next) => {
 };
 
 exports.getCurrentSchool = [
-  (req, res, next) => {
-    if (!req.session.school) {
+  async(req, res, next) => {
+    const authorizationHeader = req.headers['authorization'];
+    if (!authorizationHeader) {
+      return res.status(401).json({ error: 'Token not found' });
+    }
+
+    const token = authorizationHeader.split(' ')[1];
+    if (!token) {
       return res.status(401).json({ error: 'Unauthorized' });
     }
-    next();
+    try{
+    const decodedToken = jwt.verify(token, 'tansukh');
+    req.school = decodedToken.schoolId;
+     next();
+    } catch (err) {
+      return res.status(401).json({ error: 'Invalid token' });
+    }
   },
   (req, res, next) => {
-    const schoolId = req.session.school; // session.school is just the ID
+    const schoolId = req.school; 
     School.findById(schoolId)
       .select('-password -__v') // Exclude sensitive fields
       .then(school => {
@@ -63,13 +77,10 @@ exports.postSchoolLogin =  async (req, res, next) => {
     if (!isPasswordValid) {
       return res.status(401).json({ error: 'Invalid email or password' });
     }
-    req.session.school =  school._id;
-    await req.session.save((err) => {
-         if(err) {
-                console.log('session save error', err);
-         }
-      });
-   return res.status(200).json({ message: 'Login successful' });
+    req.school =  school._id;
+    const token = jwt.sign({ schoolId: school._id }, 'tansukh', { expiresIn: '1h' } );
+    res.setHeader('Authorization', 'Bearer ' + token);
+   return res.status(200).json({ message: 'Login successful', token: token});
 };
 
 

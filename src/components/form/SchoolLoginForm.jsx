@@ -27,7 +27,9 @@ function SchoolLoginForm({ showAlert }) {
           const formData = new FormData();
           formData.append('schoolEmail', values.schoolEmail);
           formData.append('password', values.password);
-         postLoginSchool(formData).then((() => {
+         postLoginSchool(formData).then(((res) => {
+          console.log('Response data after submission', res);
+          localStorage.setItem('token', JSON.stringify(res.token));
             showAlert("Successfully Login", "not-error", "Login");
               window.scrollTo({
             top:0,

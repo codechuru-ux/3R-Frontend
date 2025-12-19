@@ -24,7 +24,6 @@ import HelpedStudentForm from './components/form/HelpedStudentForm';
 function App() {
 
     const [alert, setAlert] = useState(null);
-
     const [auth, setAuth] = useState(undefined);
 
 
@@ -42,6 +41,9 @@ function App() {
   useEffect(() => {
 getCurrentSchool().then((school) => {
       setAuth(school);
+      console.log('schol token', school)
+      localStorage.removeItem('token');
+      localStorage.setItem('token', JSON.stringify(school.token));
     }).catch((err) => {
       setAuth(null);
     });

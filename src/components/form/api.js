@@ -1,11 +1,13 @@
 import axios from 'axios';
 
 axios.defaults.withCredentials = true;
+axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+
 
 export function postProduct(data) {
   return axios
-    .post('https://rrr-frontend.onrender.com/product', data, {
-      headers: { 'Content-Type': 'multipart/form-data' },
+    .post('http://localhost:3000/product', data, {
+      headers: { 'Content-Type': 'multipart/form-data', 'Authorization': 'Bearer ' + localStorage.getItem('token') },
     })
     .then((response) => {
       console.log('API response', response.data);
@@ -19,7 +21,7 @@ export function postProduct(data) {
 
 export function getProducts() {
   return axios
-    .get('https://rrr-frontend.onrender.com/allProducts')
+    .get('http://localhost:3000/allProducts')
     .then((response) => {
       console.log('API response', response.data);
       return response.data;
@@ -31,7 +33,7 @@ export function getProducts() {
 
 export function getProductById(id) {
   return axios
-    .get(`https://rrr-frontend.onrender.com/product/${id}`)
+    .get(`http://localhost:3000/product/${id}`)
     .then((response) => {
       console.log('API response', response.data);
       return response.data;
@@ -44,7 +46,7 @@ export function getProductById(id) {
 
 export function postRegisterSchool(data) {
   return axios
-    .post('https://rrr-frontend.onrender.com/school/register', data)
+    .post('http://localhost:3000/school/register', data)
     .then((response) => {
       console.log('API response', response.data);
       return response.data;
@@ -57,7 +59,7 @@ export function postRegisterSchool(data) {
 
 export function postLoginSchool(data) {
   return axios
-    .post('https://rrr-frontend.onrender.com/school/login', data, {
+    .post('http://localhost:3000/school/login', data, {
       withCredentials: true,
     })
     .then((response) => {
@@ -72,7 +74,7 @@ export function postLoginSchool(data) {
 
 export function getCurrentSchool() {
   return axios
-    .get('https://rrr-frontend.onrender.com/school/current', {
+    .get('http://localhost:3000/school/current', {
       withCredentials: true,
     })
     .then((response) => {
@@ -86,7 +88,7 @@ export function getCurrentSchool() {
 
 export function getAllSchool() {
   return axios
-    .get('https://rrr-frontend.onrender.com/school/allSchool')
+    .get('http://localhost:3000/school/allSchool')
     .then((res) => {
       return res.data;
     })
@@ -97,7 +99,7 @@ export function getAllSchool() {
 
 export function getSchoolProducts(id) {
   return axios
-    .get(`https://rrr-frontend.onrender.com/school/${id}/products`)
+    .get(`http://localhost:3000/school/${id}/products`)
     .then((res) => {
       return res.data;
     })
@@ -108,7 +110,7 @@ export function getSchoolProducts(id) {
 
 export function getSchoolById(id) {
   return axios
-    .get(`https://rrr-frontend.onrender.com/school/detail/${id}`)
+    .get(`http://localhost:3000/school/detail/${id}`)
     .then((res) => {
       return res.data;
     })
@@ -120,7 +122,7 @@ export function getSchoolById(id) {
 export function getSchoolBySubDistrict(subDistrict) {
   return axios
     .get(
-      `https://rrr-frontend.onrender.com/school/subDistrict/school/?subDistrict=${subDistrict}`
+      `http://localhost:3000/school/subDistrict/school/?subDistrict=${subDistrict}`
     )
     .then((res) => {
       return res.data;
@@ -134,7 +136,7 @@ export function getSchoolBySubDistrict(subDistrict) {
 export function getSchoolLeaderBoard() {
    return axios
     .get(
-      `https://rrr-frontend.onrender.com/school/schoolLeaderBoard`
+      `http://localhost:3000/school/schoolLeaderBoard`
     )
     .then((res) => {
       console.log('leaderboard data', res.data);
@@ -148,7 +150,7 @@ export function getSchoolLeaderBoard() {
 
 export function postEditProduct(id, data) {
   return axios
-    .put(`https://rrr-frontend.onrender.com/product/${id}`, data, {
+    .put(`http://localhost:3000/product/${id}`, data, {
       headers: { 'Content-Type': 'multipart/form-data' },
     })
     .then((response) => {
@@ -163,7 +165,7 @@ export function postEditProduct(id, data) {
 
 export function getProductSearch(query) {
   return axios
-    .get(`https://rrr-frontend.onrender.com/product/search?q=${query}`)
+    .get(`http://localhost:3000/product/search?q=${query}`)
     .then((response) => {
       console.log('API response', response.data);
       return response.data;
@@ -176,7 +178,7 @@ export function getProductSearch(query) {
 
 export function postAddHelpedStudent(productId, data) {
   return axios
-    .post(`https://rrr-frontend.onrender.com/product/${productId}/helpedStudent`, data, {
+    .post(`http://localhost:3000/product/${productId}/helpedStudent`, data, {
       headers: { 'Content-Type': 'application/json' },
     })
     .then((response) => {
@@ -192,7 +194,7 @@ export function postAddHelpedStudent(productId, data) {
 
 export function getProductsByCategory(category) {
   return axios
-    .get(`https://rrr-frontend.onrender.com/category?category=${category}`)
+    .get(`http://localhost:3000/category?category=${category}`)
     .then((response) => {
       console.log('API response - products by category', response.data);
       return response.data.products || response.data;
@@ -205,7 +207,7 @@ export function getProductsByCategory(category) {
 
 export function getHelpedStudentsCountBySchool(schoolId) {
   return axios
-    .get(`https://rrr-frontend.onrender.com/school/${schoolId}/helpedStudents/count`)
+    .get(`http://localhost:3000/school/${schoolId}/helpedStudents/count`)
     .then((res) => {
       return res.data;
     })
