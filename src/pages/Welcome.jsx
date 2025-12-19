@@ -171,7 +171,7 @@ export default function Welcome() {
               onChange={(e) => {
                 setselectedSchool(e.target.value);
                 localStorage.removeItem("schoolName");
-                localStorage.setItem("schoolName", JSON.stringify(e.target.value));
+                localStorage.setItem("schoolName", e.target.value);
                 window.location.href = "/home";
               }}
               className="mt- p-4 text-green-900 max-w-full rounded-lg bg-white text-2xl xl:text-3xl font-serif hover:bg-green-400 font-bold outline-none"
