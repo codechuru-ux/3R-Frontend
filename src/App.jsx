@@ -43,7 +43,7 @@ getCurrentSchool().then((school) => {
       setAuth(school);
       console.log('schol token', school)
       localStorage.removeItem('token');
-      localStorage.setItem('token', JSON.stringify(school.token));
+      localStorage.setItem('token', school.token);
     }).catch((err) => {
       setAuth(null);
     });
