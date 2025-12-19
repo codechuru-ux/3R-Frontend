@@ -33,23 +33,34 @@ exports.postSchoolRegister = (req, res, next) => {
 
 exports.getCurrentSchool = [
   async(req, res, next) => {
-    const authorizationHeader = req.headers['authorization'];
-    if (!authorizationHeader) {
-      return res.status(401).json({ error: 'Token not found' });
-    }
-
-    const token = authorizationHeader.split(' ')[1];
-    if (!token) {
-      return res.status(401).json({ error: 'Unauthorized' });
-    }
-    try{
-    const decodedToken = jwt.verify(token, 'tansukh');
-    req.school = decodedToken.schoolId;
-     next();
-    } catch (err) {
-      return res.status(401).json({ error: 'Invalid token' });
-    }
-  },
+      console.log('cookie', req.body, req.headers);
+      const authorizationHeader = req.headers['Authorization'] || req.headers['authorization'];
+      console.log('Authorization Header:', authorizationHeader);
+      if (!authorizationHeader || !authorizationHeader.startsWith('Bearer ')) {
+           return res.status(401).json({ error: 'Token not found or malformed' });
+      }
+     
+      let token = authorizationHeader.substring(7);
+      
+      if (token && token.startsWith('"') && token.endsWith('"')) {
+        token = token.slice(1, -1);
+      }
+      
+      console.log('token', token);
+      if (!token) {
+        console.log('token not found');
+        return res.status(401).json({ error: 'Unauthorized' });
+      }
+         try{
+         const decodedToken = jwt.verify(token, 'tansukh');
+         console.log('decoded token', decodedToken);
+         req.school = decodedToken.schoolId;
+          next();
+         } catch (err) {
+          console.log('invalid token error', err);
+           return res.status(401).json({ error: 'Invalid token' });
+         }
+    },
   (req, res, next) => {
     const schoolId = req.school; 
     School.findById(schoolId)
