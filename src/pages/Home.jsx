@@ -166,11 +166,11 @@ function Home() {
 
               {openDrop ? (
                 <div className="ease-in duration-1000">
-                  <div className="xl:flex justify-around py-4 items-center bg-white shadow-2xl text-green-100 mb-10 overflow-y-hidden max-w-fit lg:w-fit right-auto opacity-99 rounded-xl max-h-fit flex flex-col gap-4 px-8 tracking-tighter">
+                  <div className="xl:flex justify-around py-8 items-center bg-white shadow-2xl text-green-100 mb-10 overflow-y-hidden max-w-fit lg:w-fit right-auto opacity-99 rounded-xl max-h-fit flex flex-col gap-8 px-8 tracking-tighter">
                     <div className="w-full flex">
                       <div
                         onClick={() => handleCategoryClick("ALL")}
-                        className="flex font-semibold border-4 shadow-[2px_4px_10px_4px_#b6b4b4] bg-white rounded-xl 2xl:rounded-full text-green-800 font-serif justify-center items-center max-h-12 gap-2 2xl:gap-8 w-full lg:w-5/6 px-7 2xl:hover:mb-6 cursor-pointer hover:duration-500 border-green-800 overflow-hidden"
+                        className="flex font-semibold border-4 shadow-lg bg-white rounded-xl 2xl:rounded-full text-green-800 font-serif justify-center items-center max-h-12 gap-2 2xl:gap-8 w-full lg:w-5/6 px-7 2xl:hover:mb-6 cursor-pointer hover:duration-500 border-green-800 overflow-hidden"
                       >
                         <h4 className="text-2xl">ALL ITEMS</h4>
                       </div>
@@ -188,7 +188,7 @@ function Home() {
 
                     <div
                       onClick={() => handleCategoryClick("Clothes")}
-                      className="flex font-semibold border-4 shadow-[2px_4px_10px_4px_#b6b4b4] rounded-xl 2xl:rounded-full text-green-800 font-serif justify-center items-center max-h-12 bg-white gap-2 2xl:gap-8 w-full px-7 2xl:hover:mb-6 cursor-pointer hover:duration-500 border-green-800 overflow-hidden"
+                      className="flex font-semibold border-4 shadow-lg rounded-xl 2xl:rounded-full text-green-800 font-serif justify-center items-center max-h-12 bg-white gap-2 2xl:gap-8 w-full px-7 2xl:hover:mb-6 cursor-pointer hover:duration-500 border-green-800 overflow-hidden"
                     >
                       <img
                         className="max-w-16 rounded-4xl"
@@ -200,7 +200,7 @@ function Home() {
 
                     <div
                       onClick={() => handleCategoryClick("Footwear")}
-                      className="flex font-semibold border-4 shadow-[2px_4px_10px_4px_#b6b4b4] rounded-xl 2xl:rounded-full text-green-800 font-serif justify-center items-center max-h-12 bg-white gap-2 2xl:gap-8 w-full px-7 2xl:hover:mb-6 cursor-pointer hover:duration-500 border-green-800 overflow-hidden"
+                      className="flex font-semibold border-4 shadow-lg rounded-xl 2xl:rounded-full text-green-800 font-serif justify-center items-center max-h-12 bg-white gap-2 2xl:gap-8 w-full px-7 2xl:hover:mb-6 cursor-pointer hover:duration-500 border-green-800 overflow-hidden"
                     >
                       <img
                         className="max-w-16 rounded-4xl"
@@ -212,7 +212,7 @@ function Home() {
 
                     <div
                       onClick={() => handleCategoryClick("Stationary")}
-                      className="flex font-semibold border-4 shadow-[2px_4px_10px_4px_#b6b4b4] rounded-xl 2xl:rounded-full text-green-800 font-serif justify-center items-center max-h-12 bg-white gap-2 2xl:gap-8 w-full px-7 2xl:hover:mb-6 cursor-pointer hover:duration-500 border-green-800 overflow-hidden"
+                      className="flex font-semibold border-4 shadow-lg rounded-xl 2xl:rounded-full text-green-800 font-serif justify-center items-center max-h-12 bg-white gap-2 2xl:gap-8 w-full px-7 2xl:hover:mb-6 cursor-pointer hover:duration-500 border-green-800 overflow-hidden"
                     >
                       <img
                         className="max-w-16 rounded-4xl"
@@ -224,7 +224,7 @@ function Home() {
 
                     <div
                       onClick={() => handleCategoryClick("Bag")}
-                      className="flex font-semibold border-4 shadow-[2px_4px_10px_4px_#b6b4b4] rounded-xl 2xl:rounded-full text-green-800 font-serif justify-center items-center max-h-12 bg-white gap-2 2xl:gap-8 w-full px-7 2xl:hover:mb-6 cursor-pointer hover:duration-500 border-green-800 overflow-hidden"
+                      className="flex font-semibold border-4 shadow-lg rounded-xl 2xl:rounded-full text-green-800 font-serif justify-center items-center max-h-12 bg-white gap-2 2xl:gap-8 w-full px-7 2xl:hover:mb-6 cursor-pointer hover:duration-500 border-green-800 overflow-hidden"
                     >
                       <img
                         className="max-w-16 h-10 rounded-4xl"
