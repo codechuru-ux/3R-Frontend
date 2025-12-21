@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import EachSchoolData from "./EachSchoolData";
 import { getAllSchool, getSchoolLeaderBoard } from "./form/api";
+import { ImSpinner10 } from "react-icons/im";
 const Topper = "/imges/1st Position.png";
 
 export default function SchoolDetail() {
@@ -51,8 +52,8 @@ export default function SchoolDetail() {
 
     if (loading) {
       return (
-        <div className="text-center text-2xl text-green-800 p-10">
-          Loading...
+        <div className="min-w-full flex items-center justify-center">
+          <div className="text-6xl text-green-900 font-bold my-7"><ImSpinner10 className="animate-spin" /></div>
         </div>
       );
     }
@@ -70,12 +71,19 @@ export default function SchoolDetail() {
           </div>
         {schoolData.map((school, index) => {
          return <div key={school._id} className="pb-15">
-          <a href={`/schoolPage?id=${school._id}`} className="text-3xl xl:py-5 xl:px-16 xl:w-6xl hover:scale-103 hover:shadow-2xl transform transition-all duration-500 text-green-800 flex-col w-full cursor-pointer items-center justify-center flex md:flex-row font-bold font-serif bg-white rounded-md md:justify-between py-3 px-10">
-
+          <a href={`/schoolPage?id=${school._id}`} className="lg:text-2xl xl:text-3xl xl:py-5 xl:px-16 xl:w-8xl hover:scale-103 hover:shadow-2xl transform transition-all duration-500 text-green-800 flex-col w-full cursor-pointer items-center justify-center inline-flex md:flex-row font-bold font-serif bg-white rounded-md md:justify-between py-3 px-10">
+          <div className="md:min-w-1/3 md:max-w-1/3 flex items-start justify-start">
             <h1 className="mx-auto md:m-0"><span className="relative top-0 left-0 md:inline-block md:pr-10">{index + 1}. </span>{String(school.schoolName)}</h1>
+          </div>
+          <div className="md:min-w-fit md:max-w-1/4 flex items-center justify-center">
             <h1>{school.subDistrict}</h1>
-            <span className="hidden md:block">{school.address}</span>
+          </div>
+          <div className="md:min-w-1/3 md:max-w-1/3 flex items-center justify-center">
+            <h1>{school.address}</h1>
+          </div>
+          <div className="md:min-w-fit md:max-w-1/4 flex items-center justify-center">
             <h1>{school.totalProducts}</h1>
+          </div>
           </a>
          </div>
         })}
