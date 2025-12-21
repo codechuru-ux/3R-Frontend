@@ -4,20 +4,24 @@ import Slidebar from "../components/Slidebar";
 import { AllProductsData } from "../context/AllProducts";
 import SchoolLoginForm from "../components/form/SchoolLoginForm";
 import { getSchoolProducts } from "../components/form/api"; 
+import { ImSpinner10 } from "react-icons/im";
 import Cards from "../components/Cards";
 
 const YourSchool = ({ auth, showAlert }) => {
   const [schoolDataList2, setSchoolDataList2] = useState([]);
+  const [loading, setLoading] = useState(false);
   const schoolDataList = useContext(AllProductsData);
 
   console.log("School Data List:", schoolDataList);
   useEffect(() => {
     if (auth) {
+      setLoading(true);
       getSchoolProducts(auth._id)
         .then((products) => {
           setSchoolDataList2(products);
           console.log("Products for school:", products);
         })
+        .finally(() => setLoading(false));
     }
   }, [auth]);
 
@@ -32,9 +36,15 @@ const YourSchool = ({ auth, showAlert }) => {
             <div className="flex justify-around min-w-full">
               <a href="/uploadProducts" className="bg-white cursor-pointer text-green-800 px-15 xl:mt-27 py-2 mt-7 border-2 shadow-xl border-white-800  inline-flex gap-2 font-semibold text-4xl font-serif items-center transition-all duration-700 rounded-[9px] group hover:text-white hover:bg-green-800">Upload Products</a>
             </div>
-            <div className="flex 2xl:gap-14 flex-wrap justify-around">
-              {schoolDataList2.map((schoolData, index) => <Cards key={schoolData._id || index} title={schoolData.title} _id={schoolData._id} availability={schoolData.availability ? "Available" : "Unavailable"} thumbnail={`https://rrr-backend-0wj5.onrender.com/${schoolData.thumbnail}`} />)}
-            </div>
+            {loading ? (
+              <div className="mt-[20vh]">
+              <div className="text-6xl text-green-900 font-bold my-7"><ImSpinner10 className="animate-spin" /></div>
+              </div>
+            ) : (
+              <div className="flex 2xl:gap-14 flex-wrap justify-around">
+                {schoolDataList2.map((schoolData, index) => <Cards key={schoolData._id || index} title={schoolData.title} _id={schoolData._id} availability={schoolData.availability ? "Available" : "Unavailable"} thumbnail={`https://rrr-backend-0wj5.onrender.com/${schoolData.thumbnail}`} />)}
+              </div>
+            )}
           </div>
         ) : (
           <SchoolLoginForm showAlert={showAlert} />
