@@ -42,9 +42,9 @@ exports.postProduct = [
     if (!req.files || !req.files.thumbnail) {
       return res.status(422).send('No image provided');
     }
-    const thumbnail = req.files.thumbnail[0].path;
+    const thumbnail = req.files.thumbnail[0].path.trim();
     const images = req.files.images
-      ? req.files.images.map((file) => file.path)
+      ? req.files.images.map((file) => file.path.trim())
       : [];
 
     console.log({ school: req.school }, 'images', images, req.files.images);
@@ -108,7 +108,7 @@ exports.postEditProduct = [
    
     let thumbnail;
     if (req.files && req.files.thumbnail && req.files.thumbnail[0]) {
-      thumbnail = req.files.thumbnail[0].path;
+      thumbnail = req.files.thumbnail[0].path.trim();
     } else if (req.body.thumbnail && typeof req.body.thumbnail === "string") {
       thumbnail = req.body.thumbnail;
     } else {
@@ -119,7 +119,7 @@ exports.postEditProduct = [
     let images = [];
     
     if (req.files && req.files.images) {
-      images = req.files.images.map((file) => file.path);
+      images = req.files.images.map((file) => file.path.trim());
     }
     
     if (req.body.images) {

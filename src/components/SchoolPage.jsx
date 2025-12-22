@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getSchoolById, getSchoolLeaderBoard } from "./form/api";
 import { FaBackward } from "react-icons/fa";
 import { useSearchParams } from "react-router-dom";
+import { getThumbnailUrl } from "../utils/fileUtils";
 
 export default function SchoolPage() {
 
@@ -39,7 +40,7 @@ export default function SchoolPage() {
       <div className="border-2 border-green-800 max-w-screen max-h-fit md:max-w-fit grow xl:border-none xl:bg-transparent bg-white rounded-4xl">
         <div className="xl:flex-row p-10 items-center gap-8 flex flex-col justify-between min-w-full">
         <div className="border-3 max-w-screen border-green-800 md:max-w-3xl shrink xl:w-fit rounded-xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-700">
-        <img className="rounded-lg" src={selectedSchool?.schoolImage ? `https://rrr-backend-0wj5.onrender.com/${selectedSchool.schoolImage}` : '/images/placeholder-school.png'} alt="school image" />
+        <img className="rounded-lg" src={selectedSchool?.schoolImage ? getThumbnailUrl(selectedSchool.schoolImage) : '/images/placeholder-school.png'} alt="school image" />
       </div>
       <div className="md:text-4xl flex flex-col max-w-full gap-4 font-serif bg-white px-8 py-3 rounded-xl xl:w-fit shadow-xl md:min-w-2xl hover:shadow-2xl hover:scale-105 transition-all duration-700">
 

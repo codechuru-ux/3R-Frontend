@@ -3,9 +3,11 @@ import axios from 'axios';
 axios.defaults.withCredentials = true;
 axios.defaults.headers.common['authorization'] = 'Bearer ' + localStorage.getItem('token');
 
+export const BASE_URL = 'http://localhost:3000';
+
 export function postProduct(data) {
   return axios
-    .post('https://rrr-backend-0wj5.onrender.com/product', data, {
+    .post(`${BASE_URL}/product`, data, {
       headers: { 'Content-Type': 'multipart/form-data', 'authorization': 'Bearer ' + localStorage.getItem('token') },
     })
     .then((response) => {
@@ -20,7 +22,7 @@ export function postProduct(data) {
 
 export function getProducts() {
   return axios
-    .get('https://rrr-backend-0wj5.onrender.com/allProducts')
+    .get(`${BASE_URL}/allProducts`)
     .then((response) => {
       console.log('API response', response.data);
       return response.data;
@@ -32,7 +34,7 @@ export function getProducts() {
 
 export function getProductById(id) {
   return axios
-    .get(`https://rrr-backend-0wj5.onrender.com/product/${id}`)
+    .get(`${BASE_URL}/product/${id}`)
     .then((response) => {
       console.log('API response', response.data);
       return response.data;
@@ -45,7 +47,7 @@ export function getProductById(id) {
 
 export function postRegisterSchool(data) {
   return axios
-    .post('https://rrr-backend-0wj5.onrender.com/school/register', data)
+    .post(`${BASE_URL}/school/register`, data)
     .then((response) => {
       console.log('API response', response.data);
       return response.data;
@@ -58,7 +60,7 @@ export function postRegisterSchool(data) {
 
 export function postLoginSchool(data) {
   return axios
-    .post('https://rrr-backend-0wj5.onrender.com/school/login', data, {
+    .post(`${BASE_URL}/school/login`, data, {
       withCredentials: true,
     })
     .then((response) => {
@@ -73,7 +75,7 @@ export function postLoginSchool(data) {
 
 export function getCurrentSchool() {
   return axios
-    .get('https://rrr-backend-0wj5.onrender.com/school/current', {
+    .get(`${BASE_URL}/school/current`, {
       withCredentials: true,
     })
     .then((response) => {
@@ -87,7 +89,7 @@ export function getCurrentSchool() {
 
 export function getAllSchool() {
   return axios
-    .get('https://rrr-backend-0wj5.onrender.com/school/allSchool')
+    .get(`${BASE_URL}/school/allSchool`)
     .then((res) => {
       return res.data;
     })
@@ -98,7 +100,7 @@ export function getAllSchool() {
 
 export function getSchoolProducts(id) {
   return axios
-    .get(`https://rrr-backend-0wj5.onrender.com/school/${id}/products`)
+    .get(`${BASE_URL}/school/${id}/products`)
     .then((res) => {
       return res.data;
     })
@@ -109,7 +111,7 @@ export function getSchoolProducts(id) {
 
 export function getSchoolById(id) {
   return axios
-    .get(`https://rrr-backend-0wj5.onrender.com/school/detail/${id}`)
+    .get(`${BASE_URL}/school/detail/${id}`)
     .then((res) => {
       return res.data;
     })
@@ -121,7 +123,7 @@ export function getSchoolById(id) {
 export function getSchoolBySubDistrict(subDistrict) {
   return axios
     .get(
-      `https://rrr-backend-0wj5.onrender.com/school/subDistrict/school/?subDistrict=${subDistrict}`
+      `${BASE_URL}/school/subDistrict/school/?subDistrict=${subDistrict}`
     )
     .then((res) => {
       return res.data;
@@ -133,7 +135,7 @@ export function getSchoolBySubDistrict(subDistrict) {
 
 export function getSchoolLeaderBoard() {
   return axios
-    .get(`https://rrr-backend-0wj5.onrender.com/school/schoolLeaderBoard`)
+    .get(`${BASE_URL}/school/schoolLeaderBoard`)
     .then((res) => {
       console.log('leaderboard data', res.data);
       return res.data;
@@ -145,7 +147,7 @@ export function getSchoolLeaderBoard() {
 
 export function postEditProduct(id, data) {
   return axios
-    .put(`https://rrr-backend-0wj5.onrender.com/product/${id}`, data, {
+    .put(`${BASE_URL}/product/${id}`, data, {
       headers: { 'Content-Type': 'multipart/form-data' },
     })
     .then((response) => {
@@ -160,7 +162,7 @@ export function postEditProduct(id, data) {
 
 export function getProductSearch(query) {
   return axios
-    .get(`https://rrr-backend-0wj5.onrender.com/product/search?q=${query}`)
+    .get(`${BASE_URL}/product/search?q=${query}`)
     .then((response) => {
       console.log('API response', response.data);
       return response.data;
@@ -173,7 +175,7 @@ export function getProductSearch(query) {
 
 export function postAddHelpedStudent(productId, data) {
   return axios
-    .post(`https://rrr-backend-0wj5.onrender.com/product/${productId}/helpedStudent`, data, {
+    .post(`${BASE_URL}/product/${productId}/helpedStudent`, data, {
       headers: { 'Content-Type': 'application/json' },
     })
     .then((response) => {
@@ -188,7 +190,7 @@ export function postAddHelpedStudent(productId, data) {
 
 export function getProductsByCategory(category) {
   return axios
-    .get(`https://rrr-backend-0wj5.onrender.com/category?category=${category}`)
+    .get(`${BASE_URL}/category?category=${category}`)
     .then((response) => {
       console.log('API response - products by category', response.data);
       return response.data.products || response.data;
@@ -201,7 +203,7 @@ export function getProductsByCategory(category) {
 
 export function getHelpedStudentsCountBySchool(schoolId) {
   return axios
-    .get(`https://rrr-backend-0wj5.onrender.com/school/${schoolId}/helpedStudents/count`)
+    .get(`${BASE_URL}/school/${schoolId}/helpedStudents/count`)
     .then((res) => {
       return res.data;
     })

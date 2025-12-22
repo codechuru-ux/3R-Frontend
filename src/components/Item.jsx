@@ -12,7 +12,7 @@ export default function Item({
   availability,
  
 }) {
-  
+  console.log(name, imgUrl);
   return (
     <div>
       <div id={`${id}`} className="flex flex-col justify-center items-center gap-5 sm:m-5 border border-gray-100 w-[350px] bg-white rounded-2xl shadow-md hover:shadow-xl hover:scale-110 m-5 transform  hover:-translate-y-0.5 font-serif transition-all duration-700">

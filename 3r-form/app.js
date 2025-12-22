@@ -82,9 +82,22 @@ app.use(
 );
 
 app.use('/public/uploads', [(req, res, next) => {
-console.log('Static file request', req.path, req.url);
-next();
-},express.static(path.join(__dirname, 'public', 'uploads'))]);
+  console.log('Static file request', req.path, req.url);
+  // Set CORS headers for static files
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, PATCH');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+}, express.static(path.join(__dirname, 'public', 'uploads'), {
+  setHeaders: (res, path) => {
+    // Set proper cache headers for images
+    if (path.match(/\.(jpg|jpeg|png|gif|webp)$/)) {
+      res.set('Cache-Control', 'public, max-age=31536000'); // 1 year cache
+    }
+  },
+  index: false, // Disable directory indexing
+  dotfiles: 'ignore', // Ignore dotfiles
+})]);
 app.use(express.json());
 
 app.use(

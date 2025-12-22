@@ -9,8 +9,8 @@ import { useGSAP } from "@gsap/react";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { RiArrowDropUpLine } from "react-icons/ri";
 import { AllProductsData } from "../context/AllProducts";
-import { getSchoolProducts } from "../components/form/api";
-import { getAllSchool } from "../components/form/api";
+import { getSchoolProducts, getAllSchool } from "../components/form/api";
+import { getThumbnailUrl, getImageUrl } from "../utils/fileUtils";
 
 function Home() {
   const [productData, setproductData] = useState([]);
@@ -317,7 +317,7 @@ function Home() {
                   <Item
                     category={item.category}
                     name={item.title || item.name}
-                    imgUrl={`https://rrr-backend-0wj5.onrender.com/${item.thumbnail?.replace(/\\/g, "/")}`}
+                    imgUrl={getThumbnailUrl(item.thumbnail)}
                     schoolName={item.schoolName}
                     key={item._id}
                     id={item._id}
@@ -337,8 +337,8 @@ function Home() {
       </div>
       <DetailCard
         detailCard={{
-          imgUrl: `https://rrr-backend-0wj5.onrender.com/${detailCard.thumbnail?.replace(/\\/g, "/")}`,
-          imgUrl2: `https://rrr-backend-0wj5.onrender.com/${detailCard.images?.toString().replace(/\\/g, "/")}`,
+          imgUrl: getThumbnailUrl(detailCard.thumbnail),
+          imgUrl2: getImageUrl(detailCard.images),
           category: detailCard.category,
           name: detailCard.title,
           description: detailCard.description,
