@@ -4,8 +4,11 @@ import { BASE_URL } from "../components/form/api";
 export const encodeFilePath = (filePath) => {
   if (!filePath) return '';
   
+  const path = Array.isArray(filePath) ? filePath[0] : filePath;
 
-  let cleanPath = filePath.replace(/^public\/uploads\//, '');
+  if (!path) return '';
+
+  let cleanPath = String(path).replace(/^public\/uploads\//, '');
   
  
   return encodeURI(cleanPath);
@@ -24,4 +27,3 @@ export const getImageUrl = (imagePath) => {
   const encodedPath = encodeFilePath(imagePath);
   return `${BASE_URL}/public/uploads/${encodedPath}`;
 };
-
