@@ -24,10 +24,11 @@ function SchoolLoginForm({ showAlert }) {
         },
         validationSchema: validationSchema,
         onSubmit: values => {
+          console.log('Form data', values);
           const formData = new FormData();
           formData.append('schoolEmail', values.schoolEmail);
           formData.append('password', values.password);
-         postLoginSchool(formData).then(((res) => {
+         return postLoginSchool(formData).then(((res) => {
           console.log('Response data after submission', res);
           localStorage.setItem('token', JSON.stringify(res.token));
             showAlert("Successfully Login", "not-error", "Login");
@@ -37,6 +38,7 @@ function SchoolLoginForm({ showAlert }) {
           })
           navigate('/yourSchool', { replace:true } )
           window.location.reload();
+          return new Promise(() => {});
          })).catch((error) => {
           console.log('Login error:', error);
              showAlert('invalid password or email',"error", "logNot");
@@ -45,7 +47,6 @@ function SchoolLoginForm({ showAlert }) {
             behavior: 'smooth'
             })
          })
-          console.log('Form data', values);
         }
       });
 
@@ -53,24 +54,22 @@ function SchoolLoginForm({ showAlert }) {
 
 return(
   <>
-  <div className="bg-[#D9E4DD]  min-h-screen w-full flex justify-center flex-col items-center py-30 overflow-auto px-10">
-    <Form onSubmit={formik.handleSubmit} className=" h-130">
-    <h1 className='text-3xl font-bold self-start text-green-800 mb-6 border-b border-gray-300 w-full bg-[#D9E4DD] py-4 pl-8'>School Login Form</h1>
+  <div className="bg-[#D9E4DD]  min-h-screen w-full flex justify-center flex-col items-center py-30 overflow-auto">
+    <Form onSubmit={formik.handleSubmit} className="max-w-full h-130 md:min-w-[700px]">
+    <h1 className='text-3xl md:text-5xl text-center font-bold self-start text-green-800 mb-6 font-serif border-b-4 border-green-900 w-full bg-[#D9E4DD] py-4'>School Login Form</h1>
     <div className="bg-[#D9E4DD]
      inline-flex 
-     w-screen
+     w-full
      flex-col
-     md:w-[500px]
-     lg:w-[600px]
      gap-6
      items-center
      px-8">
     <Input type="email" name="schoolEmail" placeholder=" " value={formik.values.schoolEmail} onChange={formik.handleChange} onBlur={formik.handleBlur} errors={formik.errors.schoolEmail} touched={formik.touched.schoolEmail}>School Email</Input>
     <Input type="password" name="password" placeholder=" " value={formik.values.password} onChange={formik.handleChange} onBlur={formik.handleBlur} errors={formik.errors.password} touched={formik.touched.password}>Password</Input>
-    <FormButton className=" mt-10" formik={formik}>Login</FormButton>
+    <FormButton className=" mt-10" formik={formik}>{formik.isSubmitting ? "Verifying details..." : "Login"}</FormButton>
     </div>
     </Form>
-    <a href="/" className="bg-white cursor-pointer text-green-800 px-15 xl:mt-27 max-h-20 py-2 mt-7 border-2 shadow-xl border-white-800  inline-flex gap-2 font-semibold text-4xl font-serif items-center transition-all duration-700 rounded-[9px] group hover:text-white hover:bg-green-800"><FaBackward /> GO BACK </a>
+    <a href="/" className="bg-green-800 cursor-pointer text-white px-15 xl:mt-27 max-h-20 py-2 mt-7 border-2 shadow-xl border-white-800  inline-flex gap-2 font-semibold text-2xl md:text-4xl font-serif items-center transition-all duration-700 rounded-[9px] group hover:text-green-800 hover:bg-white"><FaBackward /> GO BACK </a>
     </div>
   </>
 )
