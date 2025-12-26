@@ -65,7 +65,7 @@ export function postLoginSchool(data) {
     })
     .then((response) => {
       console.log('API response', response.data);
-      return response.data;
+      return response;
     })
     .catch((error) => {
       console.error('API error', error);

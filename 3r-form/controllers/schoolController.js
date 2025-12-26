@@ -19,7 +19,7 @@ exports.postSchoolRegister = (req, res, next) => {
     }).catch(() => {
           bycrypt.hash(password, 12)
       .then(hashedPassword => {
-        const schoolImage = req.files.schoolImage[0].path;
+        const schoolImage = req.files.schoolImage[0].path.trim();
         const school = new School({ schoolImage, schoolName, subDistrict, password: hashedPassword, schoolEmail, schoolPhone, address, inchargeName, inchargePhone });
         return school.save();
       })
@@ -99,6 +99,9 @@ exports.postSchoolLogin =  async (req, res, next) => {
     const { schoolEmail, password } = req.body;
     const school = await School.findOne({ schoolEmail });
     if (school) {
+        if (!school.isApproved) {
+            return res.status(401).json({ error: 'School not approved' });
+        }
         const isPasswordValid = await bycrypt.compare(password, school.password);
         if (!isPasswordValid) {
           return res.status(401).json({ error: 'Invalid email or password' });
@@ -124,7 +127,7 @@ exports.postSchoolLogin =  async (req, res, next) => {
 
 
 exports.getAllSchool = (req, res, next) => {
-  School.find().select("_id schoolName schoolEmail schoolImage subDistrict schoolPhone address inchargeName inchargePhone createdAt updatedAt").then((data) => {
+  School.find({ isApproved: true }).select("_id schoolName schoolEmail schoolImage subDistrict schoolPhone address inchargeName inchargePhone createdAt updatedAt").then((data) => {
     console.log('datas', data)
     res.status(200).json(data)
   }).catch((err) => {
@@ -134,7 +137,10 @@ exports.getAllSchool = (req, res, next) => {
 
 exports.getSchoolById = (req, res, next) => {
   const schoolId = req.params.schoolId;
-  School.findById(schoolId).select("_id schoolName schoolImage schoolEmail subDistrict schoolPhone address inchargeName inchargePhone createdAt updatedAt").then((data) => {
+  School.findOne({ _id: schoolId, isApproved: true }).select("_id schoolName schoolImage schoolEmail subDistrict schoolPhone address inchargeName inchargePhone createdAt updatedAt").then((data) => {
+    if (!data) {
+      return res.status(404).json({ message: 'School not found or not approved' });
+    }
     console.log('datas', data)
     res.status(200).json(data)
   }).catch((err) => {
@@ -179,8 +185,15 @@ exports.getSchoolLeaderBoard = async (req, res, next) => {
     {
       $lookup: {
         from: "schools",
-        localField: "_id",
-        foreignField: "_id",
+        let: { schoolId: "$_id" },
+        pipeline: [
+          {
+            $match: {
+              $expr: { $eq: ["$_id", "$$schoolId"] },
+              isApproved: true
+            }
+          }
+        ],
         as: "school"
       }
     },
@@ -200,7 +213,7 @@ exports.getSchoolBySubDistrict = (req, res, next) => {
   const { subDistrict } = req.query;
   console.log('get schhool by sub district', req.query);
   
-  School.find({subDistrict}).then((data) => {
+  School.find({subDistrict, isApproved: true}).then((data) => {
     return res.status(200).json(data)
   }).catch(err => {
     console.log('error while getting school by sub district',err)

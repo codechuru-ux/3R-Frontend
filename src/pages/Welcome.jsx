@@ -78,10 +78,12 @@ export default function Welcome() {
   useEffect(() => {
     getAllSchool().then((data) => {
       setSchoolData(data);
-      console.log(data);
+      console.log('data',data);
+    }).catch((error) => {
+      console.error('Error fetching school data:', error);
     });
   }, []);
-
+console.log('school data',schoolData);
   return (
     <>
       <div className="relative">

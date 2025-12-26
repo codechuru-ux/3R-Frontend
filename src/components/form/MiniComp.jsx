@@ -20,7 +20,7 @@ export function AlertPopup({message, type, from}) {
         flex 
         items-center  
         pl-2 
-        rounded-[6px] 
+        rounded-md 
         gap-6 
         shadow-xl 
         animate-popup invisible` 
@@ -41,7 +41,7 @@ export function AlertPopup({message, type, from}) {
         items-start 
         pt-2 
         pl-2 
-        rounded-[6px] 
+        rounded-md 
         gap-3 
         shadow-xl 
         animate-popup invisible`
@@ -61,7 +61,7 @@ export function AlertPopup({message, type, from}) {
         flex 
         items-center 
         pl-2 
-        rounded-[6px] 
+        rounded-md 
         gap-6 
         shadow-xl 
         animate-popup invisible` 

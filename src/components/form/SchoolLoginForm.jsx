@@ -41,7 +41,7 @@ function SchoolLoginForm({ showAlert }) {
           return new Promise(() => {});
          })).catch((error) => {
           console.log('Login error:', error);
-             showAlert('invalid password or email',"error", "logNot");
+             showAlert(error?.response?.data.error || error.message,"error", "logNot");
              window.scrollTo({
             top:0,
             behavior: 'smooth'

@@ -9,6 +9,7 @@ import { postRegisterSchool } from "./api";
 import { useNavigate } from "react-router-dom";
 import DropDown from './DropDown';
 import { FaBackward } from "react-icons/fa";
+import FormLiquidGlass from "./FormLiquidGlass";
 function SchoolRegisterForm({ showAlert }) {
       const navigation = useNavigate();
 
@@ -64,7 +65,7 @@ function SchoolRegisterForm({ showAlert }) {
             navigation(`/submittedSuccessfully/${Math.random().toString()}`, {state: {fromRegister: true}}, { replace: true })
           }).catch(error => {
             console.error('Error during submission', error);
-             showAlert(error.response.data.error ,"error", "signNot");
+             showAlert(error?.response?.data.error || error.message,"error", "signNot");
              window.scrollTo({
             top:0,
             behavior: 'smooth'
