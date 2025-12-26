@@ -121,6 +121,8 @@ exports.postSchoolLogin =  async (req, res, next) => {
       return res.status(401).json({ error: 'Invalid email or password' });
     }
     const token = jwt.sign({ adminId: admin._id }, 'tansukh', { expiresIn: '1h' } );
+    console.log('token', token);
+    
     res.setHeader('Authorization', 'Bearer ' + token);
     return res.status(200).json({ message: 'Admin login successful', token: token, isAdmin: true });
 };

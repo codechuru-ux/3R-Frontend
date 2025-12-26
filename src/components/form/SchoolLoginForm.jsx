@@ -28,9 +28,9 @@ function SchoolLoginForm({ showAlert }) {
           const formData = new FormData();
           formData.append('schoolEmail', values.schoolEmail);
           formData.append('password', values.password);
-         return postLoginSchool(formData).then(((res) => {
-          console.log('Response data after submission', res);
-          localStorage.setItem('token', JSON.stringify(res.token));
+          postLoginSchool(formData).then((res) => {
+          console.log('Response data after submission', res );
+          localStorage.setItem('token', JSON.stringify(res.data.token));
             showAlert("Successfully Login", "not-error", "Login");
               window.scrollTo({
             top:0,
@@ -38,8 +38,8 @@ function SchoolLoginForm({ showAlert }) {
           })
           navigate('/yourSchool', { replace:true } )
           window.location.reload();
-          return new Promise(() => {});
-         })).catch((error) => {
+
+         }).catch((error) => {
           console.log('Login error:', error);
              showAlert(error?.response?.data.error || error.message,"error", "logNot");
              window.scrollTo({
