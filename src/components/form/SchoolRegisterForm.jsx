@@ -9,7 +9,6 @@ import { postRegisterSchool } from "./api";
 import { useNavigate } from "react-router-dom";
 import DropDown from './DropDown';
 import { FaBackward } from "react-icons/fa";
-import FormLiquidGlass from "./FormLiquidGlass";
 function SchoolRegisterForm({ showAlert }) {
       const navigation = useNavigate();
 
@@ -44,6 +43,7 @@ function SchoolRegisterForm({ showAlert }) {
         },
         validationSchema: validationSchema,
         onSubmit: values => {
+          console.log('Form data', values);
           const formData = new FormData();
           formData.append('schoolImage', values.schoolImage)
           formData.append('schoolName', values.schoolName);
@@ -55,7 +55,7 @@ function SchoolRegisterForm({ showAlert }) {
           formData.append('password', values.password);
           formData.append('inchargeName', values.inchargeName);
 
-          postRegisterSchool(formData).then(responseData => {
+          return postRegisterSchool(formData).then(responseData => {
             console.log('Response data after submission', responseData);
             showAlert("Successfully signed", "not-error", "sign");
               window.scrollTo({
@@ -63,15 +63,15 @@ function SchoolRegisterForm({ showAlert }) {
             behavior: 'smooth'
           })
             navigation(`/submittedSuccessfully/${Math.random().toString()}`, {state: {fromRegister: true}}, { replace: true })
+            return new Promise(() => {});
           }).catch(error => {
             console.error('Error during submission', error);
-             showAlert(error?.response?.data.error || error.message,"error", "signNot");
+             showAlert(error.response.data.error ,"error", "signNot");
              window.scrollTo({
             top:0,
             behavior: 'smooth'
           })
           });
-          console.log('Form data', values);
         }
       });
 
@@ -114,7 +114,7 @@ return(
     <Input type="tel" name="inchargePhone" placeholder=" " value={formik.values.inchargePhone} onChange={formik.handleChange} onBlur={formik.handleBlur} errors={formik.errors.inchargePhone} touched={formik.touched.inchargePhone}>Incharge Phone Number</Input>
     <Input type="password" name="password" placeholder=" " value={formik.values.password} onChange={formik.handleChange} onBlur={formik.handleBlur} errors={formik.errors.password} touched={formik.touched.password}>Password</Input>
     <Input type="password" name="confirmPassword" placeholder=" " value={formik.values.confirmPassword} onChange={formik.handleChange} onBlur={formik.handleBlur} errors={formik.errors.confirmPassword} touched={formik.touched.confirmPassword}>Confirm Password</Input>
-    <FormButton formik={formik}>Register</FormButton>
+    <FormButton formik={formik}>{formik.isSubmitting ? "Verifying details..." : "Register"}</FormButton>
     </div>
     <p className="text-xl text-green-800">Already registered? <a className="font-semibold hover:underline" href="/schoolLogin">Log in</a></p>
     </Form>
