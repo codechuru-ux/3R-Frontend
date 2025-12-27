@@ -24,6 +24,7 @@ import ApproveSchool from './pages/ApproveSchool';
 import AdminAuth from './pages/AdminAuth';
 import ManageProducts from './pages/ManageProducts';
 import AuthRoutes from './pages/AuthRoutes';
+import SiteStatistics from './pages/SiteStatistics';
 
 
 function App() {
@@ -76,6 +77,7 @@ getCurrentSchool().then((info) => {
             <Route path="/submittedSuccessfully/:any" element={<SubmittedSuccessfully />}/>
             <Route path="/approveSchool" element={<AdminAuth><ApproveSchool /></AdminAuth>}/>
             <Route path="/admin/products" element={<AdminAuth><ManageProducts showAlert={showAlert} /></AdminAuth>} />
+            <Route path="/statistics" element={<SiteStatistics />} />
           </Routes>
         </main>
     </div>
