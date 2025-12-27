@@ -12,6 +12,7 @@ import Hero from "../components/Hero";
 import WelcomeCard from "../components/WelcomeCard";
 import Slides from "../components/Slides";
 import { MdAdd } from "react-icons/md";
+import NavbarWel from "../components/NavbarWel";
 
 const Recycle = "/images/recycle.png";
 const WelcomeBg = "/images/bg.jpg";
@@ -86,6 +87,7 @@ export default function Welcome() {
 console.log('school data',schoolData);
   return (
     <>
+      <NavbarWel />
       <div className="relative">
         <div className="flex w-full items-center justify-center h-3vh bg-[#f0f8ef]">
           <div
