@@ -32,56 +32,56 @@ function Slidebar () {
         <a href="/" className='font-extrabold hover:bg-green-100 rounded-lg py-2 px-6 text-2xl text-green-900 z-20'>CODE <span className='text-yellow-600 font-extrabold'>चूरू</span></a>
       </div>
       {!isOpen && (
-        <div onClick={openMenu} className="2xl:hidden text-green-900 cursor-pointer hover:text-emerald-700 transition-all duration-300 hover:scale-110 transform p-2 rounded-xl hover:bg-emerald-50 shadow-sm hover:shadow-md">
+        <div onClick={openMenu} className="2xl:hidden text-green-900 cursor-pointer">
           <TfiMenuAlt size={30} />
         </div>
       )}
 
       {isOpen ? (
         
-      <div className="bg-linear-to-br from-emerald-800 via-green-800 to-teal-900 overflow-y-hidden fixed z-10 top-16 left-0 w-[400px] 2xl:hidden lg:w-[500px] opacity-99 rounded-r-3xl h-[calc(100vh-4rem)] flex items-center flex-col gap-6 ease-in duration-700 shadow-2xl backdrop-blur-xl border-l border-emerald-600/30">
+      <div className="bg-green-800 overflow-y-hidden fixed z-10 top-16 left-0 w-[400px] 2xl:hidden lg:w-[500px] opacity-99 rounded-r-3xl h-[calc(100vh-4rem)] flex items-center flex-col gap-10 ease-in duration-700">
         <div className="w-full items-center flex flex-col">
-          <h1 className="text-6xl font-serif font-bold mr-6 mt-5 mb-4 text-transparent bg-clip-text bg-linear-to-r from-green-100 to-emerald-200 drop-shadow-lg">Menu</h1>
-          <div className="w-full h-1 bg-linear-to-r from-transparent via-emerald-300 to-transparent rounded-full shadow-inner"></div>
+          <h1 className="text-6xl font-serif font-bold mr-6 mt-5 mb-4">Menu</h1>
+          <div className="w-full h-0.5 bg-green-100"></div>
         </div>
         <div className="absolute top-12 right-5">
           {isOpen && (
-            <div onClick={openMenu} className="2xl:hidden text-green-100 cursor-pointer z-20 hover:text-emerald-200 transition-colors duration-300 hover:scale-110 transform">
+            <div onClick={openMenu} className="2xl:hidden text-green-100 cursor-pointer z-20">
               <IoChevronBackCircle size={30} />
             </div>
           )}
         </div>
-        <div className="flex justify-end items-center flex-col mt-8 gap-6 text-green-100 w-full px-6">
+        <div className="flex justify-end items-center flex-col mt-10 gap-7 text-green-100">
 
-          <div className="flex flex-col gap-5 w-full">
-          <div className="max-w-fit group">
-            <a href="/home" className='relative text-2xl md:text-4xl font-serif font-semibold text-green-100 no-underline after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-linear-to-r after:from-emerald-300 after:to-green-200 after:transition-all after:duration-500 hover:after:w-full flex items-center px-4 py-3 rounded-xl hover:bg-white/10 backdrop-blur-sm border border-transparent hover:border-emerald-400/30 hover:shadow-lg hover:shadow-emerald-500/20 transition-all duration-300 transform hover:translate-x-1'><span className="mr-3 text-emerald-300 group-hover:text-green-200 transition-colors duration-300"><FaHome /></span> HOME</a>
+          <div className="flex flex-col gap-7">
+          <div className="max-w-fit">
+            <a href="/home" className='relative text-2xl md:text-4xl font-serif font-semibold text-green-100 no-underline after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-green-100 after:transition-all after:duration-500 hover:after:w-full flex items-center'><span className="mr-2"><FaHome /></span> HOME</a>
           </div>
-          <div className="max-w-fit group">
-            <a className='relative text-2xl md:text-4xl font-serif font-semibold text-green-100 no-underline after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-linear-to-r after:from-emerald-300 after:to-green-200 after:transition-all after:duration-500 hover:after:w-full flex items-center px-4 py-3 rounded-xl hover:bg-white/10 backdrop-blur-sm border border-transparent hover:border-emerald-400/30 hover:shadow-lg hover:shadow-emerald-500/20 transition-all duration-300 transform hover:translate-x-1' href="/yourSchool"><span className="mr-3 text-emerald-300 group-hover:text-green-200 transition-colors duration-300"><FaSchool /></span>ADMIN PANEL</a>
+          <div className="max-w-fit">
+            <a className='relative text-2xl md:text-4xl font-serif font-semibold text-green-100 no-underline after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-green-100 after:transition-all after:duration-500 hover:after:w-full flex items-center' href="/yourSchool"><span className="mr-2"><FaSchool /></span>ADMIN PANEL</a>
           </div>
-          <div className="max-w-fit group">
-            <a className='relative text-2xl md:text-4xl font-serif font-semibold text-green-100 no-underline after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-linear-to-r after:from-emerald-300 after:to-green-200 after:transition-all after:duration-500 hover:after:w-full flex items-center px-4 py-3 rounded-xl hover:bg-white/10 backdrop-blur-sm border border-transparent hover:border-emerald-400/30 hover:shadow-lg hover:shadow-emerald-500/20 transition-all duration-300 transform hover:translate-x-1' href="/schoolContribution"><span className="mr-3 text-emerald-300 group-hover:text-green-200 transition-colors duration-300"><FaFileContract /></span> LEADERBOARD</a>
+          <div className="max-w-fit">
+            <a className='relative text-2xl md:text-4xl font-serif font-semibold text-green-100 no-underline after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-green-100 after:transition-all after:duration-500 hover:after:w-full flex items-center' href="/schoolContribution"><span className="mr-2"><FaFileContract /></span> LEADERBOARD</a>
           </div>
-          <div className="max-w-fit group">
-            <a className='relative text-2xl md:text-4xl font-serif font-semibold text-green-100 no-underline after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-linear-to-r after:from-emerald-300 after:to-green-200 after:transition-all after:duration-500 hover:after:w-full flex items-center px-4 py-3 rounded-xl hover:bg-white/10 backdrop-blur-sm border border-transparent hover:border-emerald-400/30 hover:shadow-lg hover:shadow-emerald-500/20 transition-all duration-300 transform hover:translate-x-1' href="/initiatives"><span className="mr-3 text-emerald-300 group-hover:text-green-200 transition-colors duration-300"><PiStepsFill /></span> INITIATIVES</a>
+          <div className="max-w-fit">
+            <a className='relative text-2xl md:text-4xl font-serif font-semibold text-green-100 no-underline after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-green-100 after:transition-all after:duration-500 hover:after:w-full flex items-center' href="/initiatives"><span className="mr-2"><PiStepsFill /></span> INITIATIVES</a>
           </div>
-          <div className="max-w-fit group">
-          <a className='relative text-2xl md:text-4xl font-serif font-semibold text-green-100 no-underline after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-linear-to-r after:from-emerald-300 after:to-green-200 after:transition-all after:duration-700 hover:after:w-full flex items-center px-4 py-3 rounded-xl hover:bg-white/10 backdrop-blur-sm border border-transparent hover:border-emerald-400/30 hover:shadow-lg hover:shadow-emerald-500/20 transition-all duration-300 transform hover:translate-x-1' href="/inspiration"><span className="mr-3 text-emerald-300 group-hover:text-green-200 transition-colors duration-300"><GiInspiration /></span> OUR INSPIRATION</a>
+          <div className="max-w-fit">
+          <a className='relative text-2xl md:text-4xl font-serif font-semibold text-green-100 no-underline after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-green-100 after:transition-all after:duration-700 hover:after:w-full flex items-center' href="/inspiration"><span className="mr-2"><GiInspiration /></span> OUR INSPIRATION</a>
           </div>
-          <div className="max-w-fit group">
-          <a className='relative text-2xl md:text-4xl font-serif font-semibold text-green-100 no-underline after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-linear-to-r after:from-emerald-300 after:to-green-200 after:transition-all after:duration-500 hover:after:w-full flex items-center px-4 py-3 rounded-xl hover:bg-white/10 backdrop-blur-sm border border-transparent hover:border-emerald-400/30 hover:shadow-lg hover:shadow-emerald-500/20 transition-all duration-300 transform hover:translate-x-1' href="/developer"><span className="mr-3 text-emerald-300 group-hover:text-green-200 transition-colors duration-300"><MdDeveloperMode /></span>DEVELOPERs</a>
+          <div className="max-w-fit">
+          <a className='relative text-2xl md:text-4xl font-serif font-semibold text-green-100 no-underline after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-green-100 after:transition-all after:duration-500 hover:after:w-full flex items-center' href="/developer"><span className="mr-2"><MdDeveloperMode /></span>DEVELOPERs</a>
           </div>
-          <div className="max-w-fit group">
-          <a className='relative text-2xl md:text-4xl font-serif font-semibold text-green-100 no-underline after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-linear-to-r after:from-emerald-300 after:to-green-200 after:transition-all after:duration-500 hover:after:w-full flex items-center px-4 py-3 rounded-xl hover:bg-white/10 backdrop-blur-sm border border-transparent hover:border-emerald-400/30 hover:shadow-lg hover:shadow-emerald-500/20 transition-all duration-300 transform hover:translate-x-1' href="/contact"><span className="mr-3 text-emerald-300 group-hover:text-green-200 transition-colors duration-300"><MdContactMail /></span> CONTACT Us</a>
+          <div className="max-w-fit">
+          <a className='relative text-2xl md:text-4xl font-serif font-semibold text-green-100 no-underline after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-green-100 after:transition-all after:duration-500 hover:after:w-full flex items-center' href="/contact"><span className="mr-2"><MdContactMail /></span> CONTACT Us</a>
           </div>
           </div>
         </div>
 
           <div className="w-full items-center h-80 flex flex-col justify-end">
-            <div className="w-full h-1 bg-linear-to-r from-transparent via-emerald-300 to-transparent rounded-full mb-8 shadow-inner"></div>
-          <div className="max-w-fit rounded-2xl text-white animate-bounce cursor-pointer mt-3 mb-0 bg-linear-to-r from-emerald-500 via-green-500 to-teal-600 py-4 px-8 shadow-2xl hover:shadow-emerald-500/40 transition-all duration-500 transform hover:scale-105 hover:rotate-1 border border-emerald-400/30 backdrop-blur-sm">
-          <a className='text-2xl font-serif font-semibold flex items-center' href="/schoolRegister"><span className="mr-2 text-yellow-300"><MdAdd /></span> REGISTER</a>
+            <div className="bg-green-100 w-full h-0.5 mb-11"></div>
+          <div className="max-w-fit rounded-lg text-green-100 animate-bounce cursor-pointer mt-3 mb-0 bg-green-500 py-3 px-7">
+          <a className='text-2xl font-serif font-semibold flex items-center' href="/schoolRegister"><span className="mr-1"><MdAdd /></span> REGISTER</a>
           </div>
           </div>
       </div>
@@ -93,12 +93,12 @@ function Slidebar () {
 
 
       {isOpen && (
-            <div onClick={openMenu} className="fixed top-16 left-0 w-full h-[calc(100vh-4rem)] z-5 bg-black/30 backdrop-blur-sm transition-all duration-300 hover:bg-black/40">
+            <div onClick={openMenu} className="fixed top-16 left-0 w-full h-[calc(100vh-4rem)] z-5">
             </div>
           )}
 
           {isOpen && (
-            <div onClick={openMenu} className="2xl:hidden text-green-900 cursor-pointer z-20 hover:text-red-600 transition-all duration-300 hover:scale-110 transform p-2 rounded-xl hover:bg-red-50 shadow-lg hover:shadow-red-200/50">
+            <div onClick={openMenu} className="2xl:hidden text-green-900 cursor-pointer z-20">
               <IoClose size={35} />
             </div>
           )}
