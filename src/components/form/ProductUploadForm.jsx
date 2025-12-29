@@ -51,12 +51,11 @@ function ProductUploadForm({ showAlert }) {
       .oneOf(
         [
           'Electronics',
-          'Books',
-          'Clothing',
+          'Clothes',
           'Sports Equipment',
           'Art Supplies',
           'Laboratory Equipment',
-          'Stationery',
+          'stationary',
           'Footwear',
           'Bag',
           'Other',
@@ -185,11 +184,8 @@ function ProductUploadForm({ showAlert }) {
               <option className="bg-green-900" value="Electronics">
                 Electronics
               </option>
-              <option className="bg-green-900" value="Books">
-                Books
-              </option>
-              <option className="bg-green-900" value="Clothing">
-                Clothing
+              <option className="bg-green-900" value="Clothes">
+                Clothes
               </option>
               <option className="bg-green-900" value="Sports Equipment">
                 Sports Equipment
@@ -200,8 +196,8 @@ function ProductUploadForm({ showAlert }) {
               <option className="bg-green-900" value="Laboratory Equipment">
                 Laboratory Equipment
               </option>
-              <option className="bg-green-900" value="Stationery">
-                Stationery
+              <option className="bg-green-900" value="stationary">
+                Stationary
               </option>
               <option className="bg-green-900" value="Footwear">
                 Footwear
