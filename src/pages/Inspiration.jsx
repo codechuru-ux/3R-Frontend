@@ -16,7 +16,7 @@ const Inspiration = () => {
        <h1 className='font-bold text-red-800 text-5xl  mt-18 font-serif'>- - Our Inspiration - -</h1>
      </div>
     <div className='flex flex-col justify-around'>
-    <InspirationCard  name='ABHISHEK SURANA' image={photo1} post='District Collector and District Magistrate (DM),Churu'/>
+    <InspirationCard  name='ABHISHEK SURANA ( I.A.S. )' image={photo1} post='District Collector and District Magistrate (DM),Churu'/>
     <InspirationCard  name='Dr.Santosh Kumar Maharshi' image={photo3} post='Chief District Education Officer(CDEO),Churu'/>
     
     </div>
