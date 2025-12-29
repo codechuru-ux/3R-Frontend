@@ -38,7 +38,7 @@ const Hero = () => {
     </div>
       <div className='w-[400px] md:w-2xl h-full xl:w-5xl flex gap-10 flex-col items-center justify-center md:p-5'>
     <h1 className='  text-white xl:text-7xl md:text-5xl text-[33px] font-serif font-bold transition-transform duration-500 hover:scale-105'>
-      Welcome To RRR Portal 💐
+      Welcome To RRR Portal 
     </h1>
     <p className='text-white xl:text-4xl text-center md:text-left'>
       This is our RRR (Reduce, Recycle, Reuse) website, where everyone helps each other. Students in each school can submit useful items for other students to take and use.
