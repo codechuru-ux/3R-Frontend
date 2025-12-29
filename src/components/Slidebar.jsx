@@ -13,6 +13,8 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { RiArrowDropUpLine } from "react-icons/ri";
 import { MdAdd } from "react-icons/md";
 
+const Logo = "/images/Logo.png";
+
 function Slidebar () {
   const [isOpen, setIsOpen] = useState(false);
   const openMenu = () => {
@@ -28,6 +30,9 @@ function Slidebar () {
     <>
     <header className="sticky top-0 z-50 background-blur-md opacity-90">
       <nav className="bg-white flex justify-between items-center text-white h-16 px-4 backdrop-blur-md">
+      <div className="max-w-[60px]">
+        <a href="https://education.rajasthan.gov.in" className='z-20' target="_blank"><img className="max-w-full max-h-full" src={Logo} alt="" /></a>
+      </div>
       <div className="flex justify-between hover:scale-105 transition-all duration-700 backdrop-blur-md ease-in-out px-2 py-2 shrink-0">
         <a href="/" className='font-extrabold hover:bg-green-100 rounded-lg py-2 px-6 text-2xl text-green-900 z-20'>CODE <span className='text-yellow-600 font-extrabold'>चूरू</span></a>
       </div>
