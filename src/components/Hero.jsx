@@ -13,7 +13,7 @@ const Hero = () => {
     tl.to(".welcomePage", {
       duration: 1,
       ease: "power2.inOut",
-      y: "100%",
+      y: "full",
       display: "none",
       rotateX: 90,
       pointerEvents: "none",
@@ -33,17 +33,17 @@ const Hero = () => {
 
   return (
     <><div className='flex justify-around h-screen flex-col md:flex-row items-center'>
-      <div className='w-sm  md:w-xl h-full flex items-center justify-center xl:w-3xl pb-5 md:p-7'>
-    <video className='shadow-xl shadow-green-800 rounded-2xl w-full transition-transform duration-500 hover:scale-105' src={Video} loop muted autoplay="autoplay"></video>
+      <div className='w-sm  md:w-xl h-full flex items-center justify-center xl:w-3xl max-w-full pb-5 md:p-7'>
+    <video className='shadow-xl shadow-green-800 rounded-2xl bg-green-100 w-full transition-transform duration-500 hover:scale-105' src={Video} loop muted autoplay="autoplay"></video>
     </div>
-      <div className='w-[400px] md:w-2xl h-full xl:w-5xl flex gap-10 flex-col items-center justify-center md:p-5'>
-    <h1 className='  text-white xl:text-7xl md:text-5xl text-[33px] font-serif font-bold transition-transform duration-500 hover:scale-105'>
+      <div className='w-[400px] md:w-2xl h-full xl:w-5xl max-w-full flex gap-10 flex-col items-center justify-center md:p-5'>
+    <h1 className='  text-white xl:text-7xl md:text-5xl text-[33px] font-popin font-bold transition-transform duration-500 hover:scale-105'>
       Welcome To RRR Portal 
     </h1>
     <p className='text-white xl:text-4xl text-center md:text-left'>
       This is our RRR (Reduce, Recycle, Reuse) website, where everyone helps each other. Students in each school can submit useful items for other students to take and use.
     </p>
-    <button onClick={handleClick} className='animate-bounce hover:animate-in hover:bg-linear-to-r outline-none hover:from-green-800 hover:to-green-400 shadow-xl shadow-green-800 cursor-pointer bg-linear-to-r from-green-400 to-green-800 text-white p-3 w-sm rounded-full text-xl transition duration-500 ease-in-out hover:-translate-y-1 hover:shadow-2xl active:translate-y-0 active:shadow-md xl:text-4xl font-serif active:shadow-black hover:scale-105 '>
+    <button onClick={handleClick} className='animate-bounce hover:animate-in hover:bg-linear-to-r outline-none hover:from-green-800 hover:to-green-400 shadow-xl shadow-green-800 cursor-pointer bg-linear-to-r from-green-400 to-green-800 text-white p-3 w-sm rounded-full text-xl transition duration-500 ease-in-out hover:-translate-y-1 hover:shadow-2xl active:translate-y-0 active:shadow-md xl:text-4xl font-serif active:shadow-black hover:scale-105'>
       Get Started
     </button>
     </div>
