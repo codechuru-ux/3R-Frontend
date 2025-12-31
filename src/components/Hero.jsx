@@ -32,7 +32,7 @@ const Hero = () => {
   });
 
   return (
-    <><div className='flex justify-around h-screen flex-col md:flex-row items-center'>
+    <><div className='flex justify-around min-h-[95vh] w-full flex-col md:flex-row items-center'>
       <div className='w-sm  md:w-xl h-full flex items-center justify-center xl:w-3xl max-w-full pb-5 md:p-7'>
     <video className='shadow-xl shadow-green-800 rounded-2xl bg-green-100 w-full transition-transform duration-500 hover:scale-105' src={Video} loop muted autoplay="autoplay"></video>
     </div>
@@ -41,7 +41,7 @@ const Hero = () => {
       Welcome To RRR Portal 
     </h1>
     <p className='text-white xl:text-4xl text-center md:text-left'>
-      This is our RRR (Reduce, Recycle, Reuse) website, where everyone helps each other. Students in each school can submit useful items for other students to take and use.
+      Indian cities have been struggling with waste for decades. They throw up an estimated 1.5 lakh tonnes of solid waste each day. A particularly dangerous component is the ninety-five lakh tonnes of plastic waste generated a year, 40% of which is unattended. Then there is the more toxic electronic waste, battery, radioactive and biomedical waste. In Churu District of Rajasthan, india our District Collector Mr. Abhishek Surana and office of Chief District Education Churu Take this RRR initiative for reuse, reduce and recycle of products in Government Schools among Students to understand value of things and Environment
     </p>
     <button onClick={handleClick} className='animate-bounce hover:animate-in hover:bg-linear-to-r outline-none hover:from-green-800 hover:to-green-400 shadow-xl shadow-green-800 cursor-pointer bg-linear-to-r from-green-400 to-green-800 text-white p-3 w-sm rounded-full text-xl transition duration-500 ease-in-out hover:-translate-y-1 hover:shadow-2xl active:translate-y-0 active:shadow-md xl:text-4xl font-serif active:shadow-black hover:scale-105'>
       Get Started
