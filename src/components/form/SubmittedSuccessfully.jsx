@@ -17,10 +17,10 @@ const SubmittedSuccessfully = () => {
         <div className="flex justify-center mb-4">
          <FaCheckSquare className=" text-[50.5px] text-green-popup"/>
         </div>
-        <h2 className="text-2xl font-bold mb-4">School Registered Successfully!</h2>
+        <h2 className="text-2xl font-bold mb-4">Request Sent Successfully!</h2>
         <p className="text-gray-700 mb-6">
-          Your school has been successfully registered. We will review the details you provided and send you a confirmation email shortly. Please wait untill we reponse.
-        </p>
+          Your request has been sent successfully. We will check your details and get back to you soon. Please wait until we respond. And a huge request is to please active and check ragularly. You can log in once your school get approved.
+</p>
         <p className="text-gray-500 text-sm">
           Thank you for joining our community!
         </p>
