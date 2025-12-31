@@ -100,7 +100,7 @@ const YourSchool = ({ auth, showAlert }) => {
           
           {showProfileSidebar && (
             <div
-              className="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden"
+              className="fixed inset-0 backdrop-blur-sm shadow-2xl shadow-black bg-opacity-50 z-30 lg:hidden"
               onClick={() => setShowProfileSidebar(false)}
             ></div>
           )}
