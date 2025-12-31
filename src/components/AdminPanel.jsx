@@ -18,11 +18,9 @@ const AdminPanel = ({ auth, handleLogout }) => (
             <a href="/viewallschool" className="bg-green-600 hover:bg-green-500 text-white font-bold py-3 px-4 rounded-lg transition-transform transform hover:scale-105 text-center">
                 View All school
             </a>
-            <div className="relative group">
-                <button disabled className="w-full bg-gray-500 text-white font-bold py-3 px-4 rounded-lg cursor-not-allowed">
-                    User Management
-                </button>
-            </div>
+            <a href="/usermanagement" className="bg-green-600 hover:bg-green-500 text-white font-bold py-3 px-4 rounded-lg transition-transform transform hover:scale-105 text-center">
+                User Management
+            </a>
             <div className="relative group">
                 <button disabled className="w-full bg-gray-500 text-white font-bold py-3 px-4 rounded-lg cursor-not-allowed">
                     Content Management
