@@ -26,6 +26,7 @@ import ManageProducts from './pages/ManageProducts';
 import AuthRoutes from './pages/AuthRoutes';
 import SiteStatistics from './pages/SiteStatistics';
 import ViewAllSchool from './pages/AdminViewAllSchool';
+import UserManagement from './pages/UserManagement';
 
 
 function App() {
@@ -84,6 +85,7 @@ getCurrentSchool().then((info) => {
             <Route path="/admin/products" element={<AdminAuth><ManageProducts showAlert={showAlert} /></AdminAuth>} />
             <Route path="/statistics" element={<SiteStatistics />} />
             <Route path="/viewallschool" element={<ViewAllSchool />} />
+            <Route path="/usermanagement" element={<UserManagement />} />
           </Routes>
         </main>
     </div>
