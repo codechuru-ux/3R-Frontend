@@ -7,6 +7,9 @@ const ApproveSchool = ({ showAlert }) => {
   const [schools, setSchools] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [selectedSchoolId, setSelectedSchoolId] = useState(null);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
    getUnapprovedSchools().then((data) => {
@@ -34,13 +37,23 @@ const ApproveSchool = ({ showAlert }) => {
   };
   
   const handleReject = (schoolId) => {
-    setLoading(true);
-   deleteSchool(schoolId).then((res) => {
-    console.log('rejct', res)
-      showAlert(res.data?.message || res.message, "not-error", "reject")
+    setSelectedSchoolId(schoolId);
+    setShowModal(true);
+  };
+
+  const confirmReject = () => {
+    setIsDeleting(true);
+    deleteSchool(selectedSchoolId).then((res) => {
+      console.log('rejct', res);
+      showAlert(res.data?.message || res.message, "not-error", "reject");
+      setSchools(schools.filter((school) => school._id !== selectedSchoolId));
+      setShowModal(false);
+      setSelectedSchoolId(null);
     }).catch((err) => {
       setError('Failed to reject school.');
       console.error(err);
+    }).finally(() => {
+      setIsDeleting(false);
     });
   };
 
@@ -67,6 +80,36 @@ const ApproveSchool = ({ showAlert }) => {
      <>
       <Slidebar />
     <div className="min-h-screen bg-gray-50">
+      {showModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-opacity-50 backdrop-blur-sm">
+          <div className="bg-white rounded-lg shadow-lg p-6 w-96">
+            {isDeleting ? (
+              <div className="flex flex-col items-center justify-center py-8">
+                <h3 className="text-xl font-bold text-green-800 animate-pulse">Rejecting school...</h3>
+              </div>
+            ) : (
+              <>
+                <h3 className="text-lg text-center font-bold text-red-600 mb-4">Confirm Rejection</h3>
+                <p className="text-gray-600 mb-6">Do you want to Reject <span className="text-green-700 font-bold">{schools.find((school) => school._id === selectedSchoolId)?.schoolName}</span>?</p>
+                <div className="flex justify-around">
+                  <button
+                    onClick={() => setShowModal(false)}
+                    className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-800 transition-colors"
+              >
+                    No
+                  </button>
+                  <button
+                    onClick={confirmReject}
+                    className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition-colors"
+                  >
+                    Yes
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      )}
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
             <h1 className="text-3xl font-bold leading-tight text-gray-900">School Approval Queue</h1>
