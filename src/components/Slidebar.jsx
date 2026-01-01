@@ -37,55 +37,52 @@ function Slidebar () {
         <a href="/" className='font-extrabold hover:bg-green-100 rounded-lg py-2 px-6 text-2xl text-green-900 z-20'>CODE <span className='text-yellow-600 font-extrabold'>चूरू</span></a>
       </div>
       {!isOpen && (
-        <div onClick={openMenu} className="2xl:hidden text-green-900 cursor-pointer">
+        <div onClick={openMenu} className="xl:hidden text-green-900 cursor-pointer">
           <TfiMenuAlt size={30} />
         </div>
       )}
 
       {isOpen ? (
         
-      <div className="bg-green-800 overflow-y-hidden fixed z-10 top-16 left-0 w-[400px] 2xl:hidden lg:w-[500px] opacity-99 rounded-r-3xl h-[calc(100vh-4rem)] flex items-center flex-col gap-10 ease-in duration-700">
+      <div className="bg-green-800 fixed z-10 top-16 left-0 w-[400px] xl:hidden lg:w-[500px] opacity-99 rounded-r-3xl h-[calc(100vh-4rem)] flex items-center flex-col gap-10 overflow-y-scroll ease-in duration-700 [&::-webkit-scrollbar]:hidden [scrollbar-width:none] [-ms-overflow-style:none] justify-between">
         <div className="w-full items-center flex flex-col">
           <h1 className="text-6xl font-serif font-bold mr-6 mt-5 mb-4">Menu</h1>
           <div className="w-full h-0.5 bg-green-100"></div>
-        </div>
         <div className="absolute top-12 right-5">
           {isOpen && (
-            <div onClick={openMenu} className="2xl:hidden text-green-100 cursor-pointer z-20">
+            <div onClick={openMenu} className="xl:hidden text-green-100 cursor-pointer z-20">
               <IoChevronBackCircle size={30} />
             </div>
           )}
         </div>
-        <div className="flex justify-end items-center flex-col mt-10 gap-7 text-green-100">
+        </div>
+        <div className="flex justify-end items-center flex-col gap-7 text-green-100">
 
           <div className="flex flex-col gap-7">
           <div className="max-w-fit">
-            <a href="/home" className='relative text-2xl md:text-4xl font-serif font-semibold text-green-100 no-underline after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-green-100 after:transition-all after:duration-500 hover:after:w-full flex items-center'><span className="mr-2"><FaHome /></span> HOME</a>
+            <a href="/home" className='relative text-2xl md:text-3xl font-serif font-semibold text-green-100 no-underline after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-green-100 after:transition-all after:duration-500 hover:after:w-full flex items-center'><span className="mr-2"><FaHome /></span> HOME</a>
           </div>
           <div className="max-w-fit">
-            <a className='relative text-2xl md:text-4xl font-serif font-semibold text-green-100 no-underline after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-green-100 after:transition-all after:duration-500 hover:after:w-full flex items-center' href="/yourSchool"><span className="mr-2"><FaSchool /></span>ADMIN PANEL</a>
+            <a className='relative text-2xl md:text-3xl font-serif font-semibold text-green-100 no-underline after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-green-100 after:transition-all after:duration-500 hover:after:w-full flex items-center' href="/yourSchool"><span className="mr-2"><FaSchool /></span>ADMIN PANEL</a>
           </div>
           <div className="max-w-fit">
-            <a className='relative text-2xl md:text-4xl font-serif font-semibold text-green-100 no-underline after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-green-100 after:transition-all after:duration-500 hover:after:w-full flex items-center' href="/schoolContribution"><span className="mr-2"><FaFileContract /></span> LEADERBOARD</a>
+            <a className='relative text-2xl md:text-3xl font-serif font-semibold text-green-100 no-underline after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-green-100 after:transition-all after:duration-500 hover:after:w-full flex items-center' href="/schoolContribution"><span className="mr-2"><FaFileContract /></span> LEADERBOARD</a>
           </div>
           <div className="max-w-fit">
-            <a className='relative text-2xl md:text-4xl font-serif font-semibold text-green-100 no-underline after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-green-100 after:transition-all after:duration-500 hover:after:w-full flex items-center' href="/initiatives"><span className="mr-2"><PiStepsFill /></span> INITIATIVES</a>
+            <a className='relative text-2xl md:text-3xl font-serif font-semibold text-green-100 no-underline after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-green-100 after:transition-all after:duration-500 hover:after:w-full flex items-center' href="/initiatives"><span className="mr-2"><PiStepsFill /></span> INITIATIVES</a>
           </div>
           <div className="max-w-fit">
-          <a className='relative text-2xl md:text-4xl font-serif font-semibold text-green-100 no-underline after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-green-100 after:transition-all after:duration-700 hover:after:w-full flex items-center' href="/inspiration"><span className="mr-2"><GiInspiration /></span> OUR INSPIRATION</a>
+          <a className='relative text-2xl md:text-3xl font-serif font-semibold text-green-100 no-underline after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-green-100 after:transition-all after:duration-700 hover:after:w-full flex items-center' href="/inspiration"><span className="mr-2"><GiInspiration /></span> OUR INSPIRATION</a>
           </div>
           <div className="max-w-fit">
-          <a className='relative text-2xl md:text-4xl font-serif font-semibold text-green-100 no-underline after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-green-100 after:transition-all after:duration-500 hover:after:w-full flex items-center' href="/developer"><span className="mr-2"><MdDeveloperMode /></span>DEVELOPERs</a>
-          </div>
-          <div className="max-w-fit">
-          <a className='relative text-2xl md:text-4xl font-serif font-semibold text-green-100 no-underline after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-green-100 after:transition-all after:duration-500 hover:after:w-full flex items-center' href="/contact"><span className="mr-2"><MdContactMail /></span> CONTACT Us</a>
+          <a className='relative text-2xl md:text-3xl font-serif font-semibold text-green-100 no-underline after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-green-100 after:transition-all after:duration-500 hover:after:w-full flex items-center' href="/developer"><span className="mr-2"><MdDeveloperMode /></span>DEVELOPERs</a>
           </div>
           </div>
         </div>
 
           <div className="w-full items-center h-80 flex flex-col justify-end">
             <div className="bg-green-100 w-full h-0.5 mb-11"></div>
-          <div className="max-w-fit rounded-lg text-green-100 animate-bounce cursor-pointer mt-3 mb-0 bg-green-500 py-3 px-7">
+          <div className="max-w-fit rounded-lg text-green-100 animate-bounce cursor-poin]ter mt-3 mb-0 bg-green-500 py-3 px-7">
           <a className='text-2xl font-serif font-semibold flex items-center' href="/schoolRegister"><span className="mr-1"><MdAdd /></span> REGISTER</a>
           </div>
           </div>
@@ -103,12 +100,12 @@ function Slidebar () {
           )}
 
           {isOpen && (
-            <div onClick={openMenu} className="2xl:hidden text-green-900 cursor-pointer z-20">
+            <div onClick={openMenu} className="xl:hidden text-green-900 cursor-pointer z-20">
               <IoClose size={35} />
             </div>
           )}
 
-      <div className="hidden 2xl:flex gap-10 justify-center items-center h-full text-green-900">
+      <div className="hidden xl:flex gap-10 justify-center items-center h-full text-green-900">
               <a href="/home" className='md:text-2xl font-serif font-semibold hover:pb-4 h-full hover:duration-700 flex items-center'><span className="mr-2"><FaHome /></span> HOME</a>
             <a className='text-2xl font-serif font-semibold hover:pb-4 h-full hover:duration-700 flex items-center' href="/yourSchool"><span className="mr-1"><FaSchool /></span>ADMIN PANEL</a>
             <a className='text-2xl font-serif font-semibold hover:pb-4 h-full hover:duration-700 flex items-center' href="/schoolContribution"><span className="mr-1"><FaFileContract /></span> LEADERBOARD</a>
@@ -145,11 +142,6 @@ function Slidebar () {
               <RiArrowDropUpLine size={40} />
             </div>
           )}
-
-          <div className="max-w-fit">
-          <a className='text-2xl font-serif font-semibold hover:pb-4 h-full hover:duration-700 flex items-center cursor-pointer' href="/contact"><span className="mr-1"><MdContactMail /></span> CONTACT Us</a>
-          </div>
-
           <div className="flex items-center justify-center">
             <div className="border-3 h-14 max-w-0.5 mr-5 border-green-900"></div>
           <a href="/schoolRegister" className="max-w-fit rounded-lg text-white animate-bounce cursor-pointer mt-4 mb-1 bg-green-800 py-2.5 px-7">
