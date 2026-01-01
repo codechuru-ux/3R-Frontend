@@ -37,7 +37,7 @@ const Hero = () => {
     <h1 className='font-serif text-white xl:text-6xl md:text-5xl text-[33px] font-popin font-bold transition-transform duration-500 hover:scale-105'>
       Welcome To RRR Portal 🎉
     </h1>
-    <p className='text-white xl:text-md font-serif text-center md:text-left'>
+    <p className='text-white xl:text-lg font-serif text-center md:text-left hover:text-blue-700'>
      <li> Indian cities have been struggling with waste for decades.</li>
       <li> They throw up an estimated 1.5 lakh tonnes of solid waste each day.</li>
       <li>A particularly dangerous component is the ninety-five lakh tonnes of plastic waste generated a year, 40% of which is unattended.</li>
