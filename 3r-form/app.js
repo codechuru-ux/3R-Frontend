@@ -17,6 +17,7 @@ const schoolRoute = require('./routes/schoolRoute');
 const allowedOrigins = [
   'https://rrr-frontend-iota.vercel.app',
   'http://localhost:5173',
+  'https://www.3rinnovationchuru.com',
 ];
 
 app.use(
