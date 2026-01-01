@@ -117,7 +117,7 @@ getCurrentSchool().then((info) => {
             <Route path="/viewallschool" element={<ViewAllSchool />} />
             <Route path="/usermanagement" element={<UserManagement />} />
           </Routes>
-        <div ref={messageIconRef} className="text-black z-50 fixed right-3 text-6xl" style={{ bottom: '12px' }}>
+        <div ref={messageIconRef} className="text-green-900 z-50 fixed right-3 text-6xl" style={{ bottom: '12px' }}>
           <a href="/contact"><TbMessages /></a>
         </div>
         </main>
