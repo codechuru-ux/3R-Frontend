@@ -1,4 +1,4 @@
-import React, { useState, Link } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { TfiMenuAlt } from "react-icons/tfi";
 import { IoClose } from "react-icons/io5";
 import { IoChevronBackCircle } from "react-icons/io5";
@@ -25,6 +25,20 @@ function Slidebar () {
   const openDropdown = () => {
     setDrop((!openDrop))
   };
+
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDrop(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return(
     <>
@@ -110,7 +124,7 @@ function Slidebar () {
             <a className='text-2xl font-serif font-semibold hover:pb-4 h-full hover:duration-700 flex items-center' href="/yourSchool"><span className="mr-1"><FaSchool /></span>ADMIN PANEL</a>
             <a className='text-2xl font-serif font-semibold hover:pb-4 h-full hover:duration-700 flex items-center' href="/schoolContribution"><span className="mr-1"><FaFileContract /></span> LEADERBOARD</a>
           
-          <div className="relative h-full flex items-center justify-center">
+          <div ref={dropdownRef} className="relative h-full flex items-center justify-center">
             <div onClick={openDropdown} className={`text-2xl font-serif font-semibold h-full flex items-center cursor-pointer ${openDrop ? 'pb-4' : 'hover:pb-4 hover:duration-700'}`}>
               <h1>CONTEXT</h1>
               {openDrop ? <RiArrowDropUpLine size={40} /> : <RiArrowDropDownLine size={40} />}
