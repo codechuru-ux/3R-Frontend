@@ -55,7 +55,7 @@ function ProductUploadForm({ showAlert }) {
           'Sports Equipment',
           'Art Supplies',
           'Laboratory Equipment',
-          'stationary',
+          'stationery',
           'Footwear',
           'Bag',
           'Other',
@@ -126,7 +126,7 @@ function ProductUploadForm({ showAlert }) {
       <div className="bg-[#D9E4DD]  min-h-screen w-full items-center flex-col flex justify-center py-15 overflow-auto px-10">
         <Form onSubmit={formik.handleSubmit}>
           <h1 className="text-3xl font-bold self-start text-green-800 mb-6 border-b border-gray-300 w-full bg-[#D9E4DD] py-4 pl-8">
-            Upload Product Your Product
+            Upload Your Product
           </h1>
           <div
             className="bg-[#D9E4DD]
@@ -196,8 +196,8 @@ function ProductUploadForm({ showAlert }) {
               <option className="bg-green-900" value="Laboratory Equipment">
                 Laboratory Equipment
               </option>
-              <option className="bg-green-900" value="stationary">
-                Stationary
+              <option className="bg-green-900" value="stationery">
+                Stationery
               </option>
               <option className="bg-green-900" value="Footwear">
                 Footwear
