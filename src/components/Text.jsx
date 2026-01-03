@@ -8,6 +8,10 @@ const Text = (props) => {
         <h1 className='font-bold mb-5 text-3xl text-red-700 font-serif'>Abhishek Surana (I.A.S) DM CHURU
 </h1>
 <h2 className='font-bold text-2xl text-blue-700 '>💡 3R Initiative</h2>
+<div className='p-10'>
+  <img className='border-2 border-black shadow-lg shadow-black rounded-2xl transition-transform duration-500 hover:scale-105' src={props.image} alt="" />
+</div>
+<p>
 <li className='text-2xl font-bold text-red-800'>
   Across the golden sands of  Rajasthan lies Churu a land known for its heritage, its resilience, and its courage. For decades, the desert winds carried stories of survival, traditions, and the simplicity of rural life. But in recent years, those same winds began to carry a new story a story of imagination, innovation, and transformation.
   </li> 
