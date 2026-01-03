@@ -7,7 +7,7 @@ const Initiatives = () => {
   return (
     <>
         <Slidebar />
-    <div className="h-screen w-full bg-green-100">
+    <div className="min-h-screen w-full bg-green-100">
       <TextInitiatives image={Image} />
     </div>
     </>
