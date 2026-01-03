@@ -60,6 +60,8 @@ const cardData = [
   },
 ];
 
+const Image = "/images/News Cutting.png"
+
 export default function Welcome() {
   const products = useContext(AllProductsData);
   const [selectedSchool, setselectedSchool] = useState("default");
@@ -97,19 +99,26 @@ console.log('school data',schoolData);
           >
             <Hero></Hero>
 
-<div className='flex justify-around p-20 flex-col min-h-screen items-center gap-8 lg:flex-row bg-linear-to-b from-green-400 to-green-700'>
-     <WelcomeCard image={Reduse}
-                 name='Reduce'
-                  post='Minimize your consumption at the source; the best waste is the one never created.'
-                 />
-                 <WelcomeCard image={Recycle}
-                 name='Recycle'
-                  post='Give every item a second, third, and fourth life to extend its utility.'
-                 />
-                 <WelcomeCard image={Reuse}
-                 name='Reuse'
-                  post='Close the loop by processing materials into new products to save energy and resources.'
-                 />
+<div className='flex justify-around p-20 flex-col min-h-screen items-center gap-8 bg-linear-to-b from-green-400 to-green-700'>
+  <div className="min-w-full flex justify-center items-center">
+    <div className="py-5 px-15 rounded-lg transition-all hover:shadow-2xl duration-300 bg-green-700 shadow-2xs">
+      <img src={Image} alt="" className="w-full lg:max-w-fit" />
+    </div>
+  </div>
+  <div className="flex flex-wrap gap-4 justify-around min-w-full">
+    <WelcomeCard image={Reduse}
+      name='Reduce'
+      post='Minimize your consumption at the source; the best waste is the one never created.'
+    />
+    <WelcomeCard image={Recycle}
+      name='Recycle'
+      post='Give every item a second, third, and fourth life to extend its utility.'
+    />
+    <WelcomeCard image={Reuse}
+      name='Reuse'
+      post='Close the loop by processing materials into new products to save energy and resources.'
+    />
+  </div>
                  
 </div>
             <div className='flex justify-around items-center min-h-screen p-20 flex-col lg:flex-row bg-no-repeat w-full bg-cover' style={{ backgroundImage: `url(${TechBg})` }}>
