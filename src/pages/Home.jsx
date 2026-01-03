@@ -212,7 +212,7 @@ function Home() {
                     </div>
 
                     <div
-                      onClick={() => handleCategoryClick("Stationary")}
+                      onClick={() => handleCategoryClick("Stationery")}
                       className="flex font-semibold border-4 shadow-lg rounded-xl 2xl:rounded-full text-green-800 font-serif justify-center items-center max-h-12 bg-white gap-2 2xl:gap-8 w-full px-7 2xl:hover:mb-6 cursor-pointer hover:duration-500 border-green-800 overflow-hidden"
                     >
                       <img
@@ -220,7 +220,7 @@ function Home() {
                         src="https://media.istockphoto.com/id/174985205/photo/set-of-stationery-items.jpg?s=612x612&w=0&k=20&c=qjJO7Nlj4HrfDgemsKhHkJ-eZGCetulgbKu0JEALMu4="
                         alt=""
                       />
-                      <h4 className="text-2xl tracking-tighter">STATIONARY</h4>
+                      <h4 className="text-2xl tracking-tighter">STATIONERY</h4>
                     </div>
 
                     <div
@@ -279,7 +279,7 @@ function Home() {
             </div>
             </div>
 
-            <div onClick={() => handleCategoryClick("Stationary")} className="min-h-16 flex items-center justify-center cursor-pointer 2xl:hover:pb-6 duration-500">
+            <div onClick={() => handleCategoryClick("Stationery")} className="min-h-16 flex items-center justify-center cursor-pointer 2xl:hover:pb-6 duration-500">
             <div
               className="flex font-semibold border-6 rounded-xl 2xl:rounded-full text-green-800 font-serif justify-center items-center max-h-12 bg-white gap-2 2xl:gap-8 w-fit px-7 cursor-pointer hover:duration-500 border-green-800 overflow-hidden"
             >
@@ -288,7 +288,7 @@ function Home() {
                 src="https://media.istockphoto.com/id/174985205/photo/set-of-stationery-items.jpg?s=612x612&w=0&k=20&c=qjJO7Nlj4HrfDgemsKhHkJ-eZGCetulgbKu0JEALMu4="
                 alt=""
               />
-              <h4 className="text-2xl tracking-tighter">STATIONARY</h4>
+              <h4 className="text-2xl tracking-tighter">STATIONERY</h4>
             </div>
             </div>
 
