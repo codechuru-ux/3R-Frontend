@@ -123,9 +123,7 @@ const Footer = () => {
                 About Us
               </h2>
               <p className=" leading-relaxed">
-                Committed to environmental stewardship through the power of the
-                Three R's: Reduce, Reuse, Recycle. Join us in creating a
-                healthier planet.
+                India is steadily moving on the path of development, yet a large section of society continues to struggle for its basic necessities. A wide economic gap exists between the high-income groups and the middle and lower-income sections. In such circumstances, the principles of the **3Rs—Reduce, Reuse, and Recycle—**emerge as a beacon of hope, especially for the economically weaker sections of society.
               </p>
            
             </motion.div>
