@@ -7,6 +7,7 @@ const TextInitiatives = (props) => {
     <div className='flex justify-center'>
         <div className='flex flex-col items-center mt-7 p-10 bg-green-400 mb-6 w-350 border-2 border-black shadow-lg shadow-black rounded-2xl'>
           <h2 className='font-extrabold text-xl md:text-4xl font-serif text-blue-700 transition-transform duration-500 hover:scale-105'>🔰 3-RRR 🔰</h2>
+          <img src="/images/pictac4.png" alt="" className="rounded-lg transition-all hover:shadow-2xl duration-300 shadow-2xs my-6" />
           <p className='font-bold text-lg md:text-2xl pt-2 flex flex-col gap-2 md:gap-7'>
             <li className='text-red-900'>
               India is steadily moving on the path of development, yet a large section of society continues to struggle for its basic necessities. A wide economic gap exists between the high-income groups and the middle and lower-income sections. In such circumstances, the principles of the **3Rs—Reduce, Reuse, and Recycle—**emerge as a beacon of hope, especially for the economically weaker sections of society.
