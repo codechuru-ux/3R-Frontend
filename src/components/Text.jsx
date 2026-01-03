@@ -5,89 +5,27 @@ const Text = (props) => {
     <><div className='flex justify-center'>
     <div className='flex flex-col items-center mt-7 p-10 bg-green-400 mb-6 w-300 border-2 border-black shadow-lg shadow-black rounded-2xl'>
       
-        <h1 className='font-bold text-3xl text-red-700 font-serif'>Reduce Recycle Reuse (3R) and 'Code Churu' Initiative in Churu District</h1>
-<h2 className='font-bold text-2xl text-blue-700 '>💡 (3R) Initiative</h2>
+        <h1 className='font-bold mb-5 text-3xl text-red-700 font-serif'>Abhishek Surana (I.A.S) DM CHURU
+</h1>
+<h2 className='font-bold text-2xl text-blue-700 '>💡 3R Initiative</h2>
 <div className='p-10'>
   <img className='border-2 border-black shadow-lg shadow-black rounded-2xl transition-transform duration-500 hover:scale-105' src={props.image} alt="" />
 </div>
 <p>
 <li className='text-2xl font-bold text-red-800'>
-  ♻️ 3R क्या हैं?
+  Across the golden sands of  Rajasthan lies Churu a land known for its heritage, its resilience, and its courage. For decades, the desert winds carried stories of survival, traditions, and the simplicity of rural life. But in recent years, those same winds began to carry a new story a story of imagination, innovation, and transformation.
   </li> 
 
 <li className='text-xl text-blue-900 font-bold'>
-  '3R' पर्यावरण संरक्षण (Environmental Protection) और कचरा प्रबंधन (Waste Management) से संबंधित तीन महत्वपूर्ण सिद्धांतों को दर्शाते हैं।
-
+  This change did not arrive suddenly. It was seeded in vision, nurtured with intention, and strengthened by collaboration. Inspired by the Honourable Prime Minister Shri Narendra Modi’s dream of a Skilled and Innovative India, Churu began its journey toward educational excellence.
 </li>
 <li className='text-xl text-green-900 font-bold'>
-इन 3R का मतलब है:
-
+What this one individual has accomplished for Churu district during his tenure as District Collector is nothing short of a blessing for the region. Churu was fortunate to receive a young, energetic, and visionary administrator whose presence strengthened the very backbone of the district.
 </li>
 <li className='text-xl text-blue-900 font-bold'>
-1. Reduce (कम करें)
-
+Under the leadership and dedication of District Collector Abhishek Surana I.A.S. the district stepped into a new era an era where government schools were not merely centre’s of learning, but centre’s of invention. Here, curiosity replaced hesitation. Here, computers became tools of creation not luxury. Here, books gained life, and libraries regained purpose.
+In just a short span, Churu began to redefine what was possible. Coding entered rural classrooms ; robotics and tinkering became the new playground; library movement revived reading culture; and sustainability grew from an idea into a habit with 3-R Centers.
 </li>
-<li className='text-xl text-blue-900 font-bold'>
-2. Reuse (पुनः उपयोग करें)
-
-</li>
-<li className='text-xl text-blue-900 font-bold'>
-3. Recycle (पुनर्चक्रण करें)
-
-</li>
-
- <li className='text-2xl font-bold text-red-800'>
-  1. Reduce (कम करें)
- </li>
-
-<li className='text-xl font-bold '>
-  अर्थ: कचरा बनने से पहले ही उसका **उत्पादन कम** करना।
-</li>
-<li className='text-xl font-bold '>
-उदाहरण: कम पैकेजिंग वाले उत्पाद खरीदना, प्लास्टिक की थैलियों के बजाय कपड़े का थैला इस्तेमाल करना, या ज़रूरत से ज़्यादा सामान न खरीदना।
-
-</li>
-<li className='text-xl font-bold '>
-लक्ष्य: प्राकृतिक संसाधनों (Natural Resources) की खपत को घटाना।
-
-</li>
-<li className='text-2xl font-bold text-red-800'>
-2. Reuse (पुनः उपयोग करें)
-
-</li>
-<li className='text-xl font-bold '>
-अर्थ: किसी वस्तु को फेंकने के बजाय उसे उसी रूप में या किसी और काम के लिए **दोबारा इस्तेमाल** करना।
-
-</li>
-<li className='text-xl font-bold '>
-उदाहरण: पुराने जार या डिब्बों को स्टोर करने के लिए उपयोग करना, फटे कपड़ों से पोंछा बनाना, या पुरानी वस्तुओं को दान करना।
-
-</li>
-<li className='text-xl font-bold '>
-लक्ष्य: नई वस्तुओं की मांग को कम करना और कचरे के ढेर को बढ़ने से रोकना।
-
-</li>
-<li className='text-2xl font-bold text-red-800'>
- 3. Recycle (पुनर्चक्रण करें)
-
-</li>
-<li className='text-xl font-bold '> 
-अर्थ: कचरे को इकट्ठा करके उसे **संसाधित (process) करना** ताकि उससे नए उत्पाद बनाए जा सकें।
-
-</li>
-<li className='text-xl font-bold '>
-उदाहरण: प्लास्टिक की बोतलों, कागज़, और शीशे को छांटकर अलग करना और उन्हें पुनर्चक्रण केंद्र (Recycling Center) तक पहुँचाना।
-
-</li>
-<li className='text-xl font-bold '>
-लक्ष्य: लैंडफिल (Landfill) में जाने वाले कचरे की मात्रा कम करना और कच्चे माल (Raw Materials) पर निर्भरता घटाना।
-
-</li>
-<li className='text-2xl font-bold text-red-800 '>
-संक्षेप में, **3R का मुख्य उद्देश्य पर्यावरण पर हमारे नकारात्मक प्रभाव को कम करना है।**
-
-</li>
-
 </p>
 </div>
     </div>
