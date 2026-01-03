@@ -229,8 +229,8 @@ function ProductUploadForm({ showAlert }) {
               <option className="bg-green-900" value="good">
                 Good
               </option>
-              <option className="bg-green-900" value="avarage">
-                Avarage
+              <option className="bg-green-900" value="average">
+                Average
               </option>
               <option className="bg-green-900" value="nice">
                 Nice
