@@ -1,3 +1,4 @@
+
 import React from "react";
 import { motion } from "framer-motion";
 import {
@@ -122,7 +123,7 @@ const Footer = () => {
               <h2 className="text-2xl font-bold text-gray-100 mb-4">
                 About Us
               </h2>
-              <p className=" leading-relaxed">
+              <p className="text-sm leading-relaxed">
                 India is steadily moving on the path of development, yet a large section of society continues to struggle for its basic necessities. A wide economic gap exists between the high-income groups and the middle and lower-income sections. In such circumstances, the principles of the **3Rs—Reduce, Reuse, and Recycle—**emerge as a beacon of hope, especially for the economically weaker sections of society.
               </p>
            
