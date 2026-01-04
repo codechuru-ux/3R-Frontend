@@ -81,7 +81,7 @@ const Footer = () => {
               </h2>
               <ul className="space-y-2 text-white flex flex-col ">
                 <a
-                  href="/home"
+                  href="/"
                   className="   hover:text-green-400 cursor-pointer transition"
                 >
                   Home
