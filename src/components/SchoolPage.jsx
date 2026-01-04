@@ -10,6 +10,7 @@ export default function SchoolPage() {
   const schoolId = searchParams.get('id');
   const [selectedSchool, setSelectedSchool] = useState();
   const [helpedCount, setHelpedCount] = useState(0);
+  const [imgLoading, setImgLoading] = useState(false);
 
   useEffect(() => {
     if (schoolId) {
@@ -34,15 +35,34 @@ export default function SchoolPage() {
     }
   }, [schoolId]);
 
+  useEffect(() => {
+    if (selectedSchool) setImgLoading(true);
+  }, [selectedSchool]);
+
   return(
     <>
       <div className="min-h-screen max-w-screen flex items-center flex-col pt-14 xl:pt-42">
       <div className="border-2 border-green-800 max-w-screen max-h-fit md:max-w-fit grow xl:border-none xl:bg-transparent bg-white rounded-4xl">
         <div className="xl:flex-row p-10 items-center gap-8 flex flex-col justify-between min-w-full">
-        <div className="border-3 max-w-screen border-green-800 md:max-w-3xl shrink xl:w-fit rounded-xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-700">
-        <img className="rounded-lg" src={selectedSchool?.schoolImage ? getThumbnailUrl(selectedSchool.schoolImage) : '/images/placeholder-school.png'} alt="school image" />
-      </div>
-      <div className="md:text-4xl flex flex-col max-w-full gap-4 font-serif bg-white px-8 py-3 rounded-xl xl:w-fit shadow-xl md:min-w-2xl hover:shadow-2xl hover:scale-105 transition-all duration-700">
+        <div className="min-w-full lg:min-w-xl border-2 border-green-800 min-h-56 flex items-center bg-white/80 justify-center max-w-screen  md:max-w-3xl shrink xl:w-fit rounded-xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-700">
+          <div className="relative">
+            {imgLoading && (
+              <div className="absolute inset-0 flex min-w-full text-green-900 font-bold font-serif md:text-2xl xl:text-4xl text-center animate-pulse items-center justify-center rounded-lg">
+                Loading Image...
+              </div>
+            )}
+            {selectedSchool?.schoolImage ? (
+              <img
+                className={`rounded-lg ${imgLoading ? 'opacity-0' : 'opacity-100'}`}
+                src={getThumbnailUrl(selectedSchool.schoolImage)}
+                alt="School"
+                onLoad={() => setImgLoading(false)}
+                onError={() => { console.error('School image failed to load'); }}
+              />
+            ) : null}
+          </div>
+        </div>
+      <div className="md:text-4xl flex flex-col gap-4 font-serif bg-white px-8 py-3 rounded-xl xl:w-fit shadow-xl md:min-w-2xl hover:shadow-2xl max-w-2xl hover:scale-105 transition-all duration-700">
 
         <h1 className="text-green-800"><span className="text-black">School Name: </span>{selectedSchool?.schoolName ? String(selectedSchool.schoolName) : ''}</h1>
         <h1 className="text-green-800"><span className="text-black">Address: </span>{selectedSchool?.address}</h1>
@@ -56,7 +76,7 @@ export default function SchoolPage() {
       </div>
       </div>
       </div>
-      <a href="/schoolContribution" className="bg-white cursor-pointer text-green-800 px-15 xl:mt-27 py-2 mt-7 border-2 shadow-xl border-white-800  inline-flex gap-2 font-semibold text-4xl font-serif items-center transition-all duration-700 rounded-[9px] group hover:text-white hover:bg-green-800"><FaBackward /> GO BACK </a>
+      <a href="/schoolContribution" className="bg-green-800 cursor-pointer text-white px-15 xl:mt-27 max-h-20 py-2 mt-7 border-2 shadow-xl border-white-800  inline-flex gap-2 font-semibold text-2xl md:text-4xl font-serif items-center transition-all duration-700 rounded-[9px] group hover:text-green-800 mb-10 hover:bg-white"><FaBackward /> GO BACK </a>
     </div>
 
     </>
