@@ -94,7 +94,7 @@ console.log('school data',schoolData);
           >
             <Hero></Hero>
 
-<div className='flex justify-around p-20 flex-col min-h-screen items-center gap-8 lg:flex-row bg-linear-to-b from-green-400 to-green-700'>
+<div className='flex justify-around p-20 flex-col min-h-screen items-center gap-8 lg:flex-row bg-green-700'>
      <WelcomeCard image={Reduse}
                  name='Reduce'
                   post='Minimize your consumption at the source; the best waste is the one never created.'
