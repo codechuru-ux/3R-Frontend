@@ -329,8 +329,8 @@ function Home() {
       </div>
       <DetailCard
         detailCard={{
-          imgUrl: getThumbnailUrl(detailCard.thumbnail),
-          imgUrl2: getImageUrl(detailCard.images),
+          imgUrl: detailCard.thumbnail,
+          imgUrl2: detailCard.images,
           category: detailCard.category,
           name: detailCard.title,
           description: detailCard.description,

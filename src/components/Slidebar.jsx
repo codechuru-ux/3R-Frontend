@@ -29,13 +29,14 @@ function Slidebar () {
 
   return(
     <>
-    <header className="sticky top-0 z-50 background-blur-md opacity-90">
-      <nav className={"bg-white flex justify-between items-center text-white h-16 px-4 backdrop-blur-md shadow-md " + (localStorage.getItem('token') && "2xl:pr-40") }>
+    <header className="sticky top-0 z-50">
+      
+      <nav className={"bg-transparent backdrop-blur-md shadow-lg shadow-emerald-200/10 border-b border-white/20 flex justify-between items-center h-20 px-4 " + (localStorage.getItem('token') && "2xl:pr-40") }>
        <div className="max-w-[60px]">
         <a href="https://education.rajasthan.gov.in" className='z-20' target="_blank"><img className="max-w-full max-h-full" src={Logo} alt="" /></a>
       </div>
-      <div className="flex justify-between hover:scale-105 transition-all duration-700 backdrop-blur-md ease-in-out px-2 py-2 shrink-0">
-        <a href="/" className='font-extrabold hover:bg-green-100 rounded-lg py-2 px-6 text-2xl text-green-900 z-20'>CODE <span className='text-yellow-600 font-extrabold'>चूरू</span></a>
+      <div className="flex justify-between hover:scale-105 transition-all duration-700 ease-in-out px-2 py-2 shrink-0">
+        <a href="/" className='font-extrabold rounded-lg py-2 px-6 text-2xl text-green-900 z-20'>CODE <span className='text-yellow-600 font-extrabold'>चूरू</span></a>
       </div>
       {!isOpen && (
         <div onClick={openMenu} className="2xl:hidden text-green-900 cursor-pointer">
@@ -43,9 +44,10 @@ function Slidebar () {
         </div>
       )}
 
+      
       {isOpen ? (
-        
-      <div className="bg-green-800 overflow-y-hidden fixed z-10 top-16 left-0 w-[400px] 2xl:hidden lg:w-[500px] opacity-99 rounded-r-3xl h-[calc(100vh-4rem)] flex items-center flex-col gap-10 ease-in duration-700">
+
+        <div className="bg-green-800 overflow-y-hidden fixed z-10 top-16 left-0 w-[400px] 2xl:hidden lg:w-[500px] opacity-99 rounded-r-3xl h-[calc(100vh-4rem)] flex items-center flex-col gap-10 ease-in duration-700">
         <div className="w-full items-center flex flex-col">
           <h1 className="text-6xl font-serif font-bold mr-6 mt-5 mb-4">Menu</h1>
           <div className="w-full h-0.5 bg-green-100"></div>
@@ -93,10 +95,8 @@ function Slidebar () {
       </div>
 
       ) : (
-
       <div className="bg-gray-800 overflow-y-hidden fixed z-10 top-16 left-[-150%] w-screen h-[calc(100vh-4rem)] flex items-center justify-center flex-col gap-10 ease-in duration-700"></div>
     )}
-
 
       {isOpen && (
             <div onClick={openMenu} className="fixed top-16 left-0 w-full h-[calc(100vh-4rem)] z-5">
@@ -109,41 +109,51 @@ function Slidebar () {
             </div>
           )}
 
-      <div className="hidden 2xl:flex gap-8 justify-center items-center h-full text-green-900">
-        <a href="/home" className='group relative text-lg font-semibold text-green-800 after:absolute after:content-[""] after:w-full after:h-1 after:bottom-0 after:left-0 after:bg-linear-to-r after:from-emerald-500 after:to-green-600 after:scale-x-0 after:origin-bottom-left after:transition-transform after:duration-300 hover:after:scale-x-100 py-3 px-4 rounded-lg hover:bg-linear-to-r hover:from-emerald-50 hover:to-green-50 transition-all duration-300 flex items-center shadow-sm hover:shadow-md'><span className="mr-2 text-emerald-600 group-hover:text-emerald-700 transition-colors duration-300"><FaHome /></span> HOME</a>
-       {pathName !== '/' && <a className='group relative text-lg font-semibold text-green-800 after:absolute after:content-[""] after:w-full after:h-1 after:bottom-0 after:left-0 after:bg-linear-to-r after:from-emerald-500 after:to-green-600 after:scale-x-0 after:origin-bottom-left after:transition-transform after:duration-300 hover:after:scale-x-100 py-3 px-4 rounded-lg hover:bg-linear-to-r hover:from-emerald-50 hover:to-green-50 transition-all duration-300 flex items-center shadow-sm hover:shadow-md' href="/yourSchool"><span className="mr-1 text-emerald-600 group-hover:text-emerald-700 transition-colors duration-300"><FaSchool /></span>ADMIN PANEL</a> }
-        <a className='group relative text-lg font-semibold text-green-800 after:absolute after:content-[""] after:w-full after:h-1 after:bottom-0 after:left-0 after:bg-linear-to-r after:from-emerald-500 after:to-green-600 after:scale-x-0 after:origin-bottom-left after:transition-transform after:duration-300 hover:after:scale-x-100 py-3 px-4 rounded-lg hover:bg-linear-to-r hover:from-emerald-50 hover:to-green-50 transition-all duration-300 flex items-center shadow-sm hover:shadow-md' href="/schoolContribution"><span className="mr-1 text-emerald-600 group-hover:text-emerald-700 transition-colors duration-300"><FaFileContract /></span> LEADERBOARD</a>
-        
-        <div className="relative group">
-          <div onClick={openDropdown} className='group relative text-lg font-semibold text-green-800 after:absolute after:content-[""] after:w-full after:h-1 after:bottom-0 after:left-0 after:bg-linear-to-r after:from-emerald-500 after:to-green-600 after:scale-x-0 after:origin-bottom-left after:transition-transform after:duration-300 hover:after:scale-x-100 py-3 px-4 rounded-lg hover:bg-linear-to-r hover:from-emerald-50 hover:to-green-50 transition-all duration-300 flex items-center cursor-pointer shadow-sm hover:shadow-md'>
-            <h1 className="group-hover:text-emerald-700 transition-colors duration-300">CONTEXT</h1>
-            {openDrop ? <RiArrowDropUpLine size={30} className="text-emerald-600 group-hover:text-emerald-700 transition-colors duration-300" /> : <RiArrowDropDownLine size={30} className="text-emerald-600 group-hover:text-emerald-700 transition-colors duration-300" />}
-          </div>
-          
-          {openDrop && (
-            <div className="absolute top-full left-0 mt-2 bg-white/95 backdrop-blur-md border border-emerald-200/50 rounded-2xl shadow-2xl z-20 w-64 overflow-hidden animate-in slide-in-from-top-2 duration-300">
-              <div className="text-green-900 overflow-y-hidden rounded-lg h-fit flex flex-col gap-1 p-2 bg-linear-to-b from-white to-emerald-50/30">
-                <a className='group/item text-lg font-medium hover:bg-linear-to-r hover:from-emerald-100 hover:to-green-100 rounded-xl px-4 py-3 transition-all duration-300 flex items-center shadow-sm hover:shadow-md transform hover:scale-[1.02]' href="/inspiration"><span className="mr-3 text-yellow-500 group-hover/item:text-yellow-600 transition-colors duration-300"><GiInspiration /></span> <span className="group-hover/item:text-emerald-700 transition-colors duration-300">OUR INSPIRATION</span></a>
-                <a className='group/item text-lg font-medium hover:bg-linear-to-r hover:from-emerald-100 hover:to-green-100 rounded-xl px-4 py-3 transition-all duration-300 flex items-center shadow-sm hover:shadow-md transform hover:scale-[1.02]' href="/initiatives"><span className="mr-3 text-blue-500 group-hover/item:text-blue-600 transition-colors duration-300"><PiStepsFill /></span> <span className="group-hover/item:text-emerald-700 transition-colors duration-300">INITIATIVES</span></a>
-                <a className='group/item text-lg font-medium hover:bg-linear-to-r hover:from-emerald-100 hover:to-green-100 rounded-xl px-4 py-3 transition-all duration-300 flex items-center shadow-sm hover:shadow-md transform hover:scale-[1.02]' href="/developer"><span className="mr-3 text-gray-500 group-hover/item:text-gray-600 transition-colors duration-300"><MdDeveloperMode /></span> <span className="group-hover/item:text-emerald-700 transition-colors duration-300">DEVELOPERs</span></a>
-              </div>
-            </div>
-          )}
-        </div>
+      
+      <div className="hidden 2xl:flex gap-4 justify-center items-center h-full">
+        <a href="/home" className='group flex items-center px-6 py-3 text-lg font-semibold text-emerald-800 transition-all duration-300 bg-black/5 backdrop-blur-md border border-white/40 rounded-xl shadow-md hover:bg-white/20 hover:text-emerald-950 hover:scale-105 hover:shadow-lg hover:shadow-emerald-300/50 transform'><span className="mr-2 text-emerald-700 transition-transform duration-300 group-hover:scale-110"><FaHome /></span> HOME</a>
+       {pathName !== '/' && <a className='group flex items-center px-6 py-3 text-lg font-semibold text-emerald-800 transition-all duration-300 bg-black/5 backdrop-blur-md border border-white/40 rounded-xl shadow-md hover:bg-white/20 hover:text-emerald-950 hover:scale-105 hover:shadow-lg hover:shadow-emerald-300/50 transform' href="/yourSchool"><span className="mr-2 text-emerald-700 transition-transform duration-300 group-hover:scale-110"><FaSchool /></span>ADMIN PANEL</a> }
+        <a className='group flex items-center px-6 py-3 text-lg font-semibold text-emerald-800 transition-all duration-300 bg-black/5 backdrop-blur-md border border-white/40 rounded-xl shadow-md hover:bg-white/20 hover:text-emerald-950 hover:scale-105 hover:shadow-lg hover:shadow-emerald-300/50 transform' href="/schoolContribution"><span className="mr-2 text-emerald-700 transition-transform duration-300 group-hover:scale-110"><FaFileContract /></span> LEADERBOARD</a>
 
-     
+        <div className="relative group">
+          <div onClick={openDropdown} className='group flex items-center px-6 py-3 text-lg font-semibold text-emerald-800 transition-all duration-300 bg-black/5 backdrop-blur-md border border-white/40 rounded-xl shadow-md hover:bg-white/20 hover:text-emerald-950 hover:scale-105 hover:shadow-lg hover:shadow-emerald-300/50 transform cursor-pointer'>
+            <h1 className="text-emerald-800">CONTEXT</h1>
+            {openDrop ? <RiArrowDropUpLine size={30} className="text-emerald-800" /> : <RiArrowDropDownLine size={30} className="text-emerald-800" />}
+          </div>
+        </div>
 
         {!localStorage.getItem('token') && <div className="flex items-center justify-center pl-6">
           <div className="border-l-2 h-8 border-emerald-300/60"></div>
-          <a href="/schoolRegister" className="ml-8 max-w-fit rounded-md text-white cursor-pointer bg-green-700 transition-all duration-300 py-3 px-8 transform hover:scale-105 shadow-lg hover:shadow-2xl hover:shadow-emerald-500/30 border border-emerald-400/30 backdrop-blur-sm font-bold tracking-wide relative overflow-hidden group">
-            <div className="absolute inset-0 bg-linear-to-r from-white/0 via-white/20 to-white/0 -skew-x-12 transform -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-            <h1 className='text-base font-bold flex items-center tracking-wider relative z-10'><span className="mr-2 text-gray-50"><MdAdd /></span> REGISTER</h1>
+          <a href="/schoolRegister" className="ml-8 group flex items-center px-8 py-3 text-base font-bold tracking-wide text-green-800 transition-all duration-300 rounded-md border border-green-400 shadow-lg hover:shadow-xl hover:shadow-emerald-400/30 hover:scale-105 transform">
+            <span className="mr-2 transition-transform duration-300 group-hover:scale-110"><MdAdd /></span> REGISTER
           </a>
         </div>}
       </div>
 
     </nav>
   </header>
+
+  
+  {openDrop && (
+    <div className="fixed top-20 right-0 -translate-x-1/2 w-80 z-99999 rounded-3xl border border-white/30 shadow-2xl backdrop-blur-md bg-emerald-50/5">
+      <div className="p-2">
+        <div className="flex flex-col gap-1">
+          <a className='group/item flex items-center gap-4 rounded-2xl px-4 py-3 text-lg font-semibold transition-all duration-300 hover:bg-emerald-500/20 hover:shadow-inner' href="/inspiration">
+            <span className="rounded-lg bg-yellow-500/10 p-3 text-yellow-400 ring-1 ring-yellow-400/20 transition-all duration-300 group-hover/item:bg-yellow-500/20 group-hover/item:text-yellow-500 group-hover/item:scale-110"><GiInspiration size={24} /></span>
+            <span className="transition-transform duration-300 text-green-800 group-hover/item:translate-x-1 ">OUR INSPIRATION</span>
+          </a>
+          <a className='group/item flex items-center gap-4 rounded-2xl px-4 py-3 text-lg font-semibold transition-all duration-300 hover:bg-emerald-500/20 hover:shadow-inner' href="/initiatives">
+            <span className="rounded-lg bg-emerald-500/10 p-3 text-emerald-400 ring-1 ring-emerald-400/20 transition-all duration-300 group-hover/item:bg-emerald-500/20 group-hover/item:text-emerald-500 group-hover/item:scale-110"><PiStepsFill size={24} /></span>
+            <span className="transition-transform duration-300 text-green-800 group-hover/item:translate-x-1 ">INITIATIVES</span>
+          </a>
+          <a className='group/item flex items-center gap-4 rounded-2xl px-4 py-3 text-lg font-semibold transition-all duration-300 hover:bg-emerald-500/20 hover:shadow-inner' href="/developer">
+            <span className="rounded-lg bg-gray-500/10 p-3 text-gray-400 ring-1 ring-gray-400/20 transition-all duration-300 group-hover/item:bg-gray-500/20 group-hover/item:text-gray-500 group-hover/item:scale-110"><MdDeveloperMode size={24} /></span>
+            <span className="transition-transform duration-300  text-green-800 group-hover/item:translate-x-1 ">DEVELOPERs</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  )}
   </>
 )
 };

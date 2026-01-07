@@ -1,5 +1,33 @@
 @import "tailwindcss";
 
+@layer utilities {
+  .bg-radial {
+    background-image: radial-gradient(circle, var(--tw-gradient-stops));
+  }
+}
+
+@layer utilities {
+  .backdrop-blur-force {
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 15s linear infinite;
+}
+
+
+
 @theme{
      --color-gray-popup: rgba(214, 214, 214, 0.95);
     --color-green-popup: #20D61A;
