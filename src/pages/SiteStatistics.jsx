@@ -4,6 +4,7 @@ import { Line, Radar, Bar, Pie, Doughnut } from 'react-chartjs-2';
 import { getSchoolLeaderBoard } from "../components/form/api";
 import Slidebar from "../components/Slidebar";
 import { ImSpinner10 } from "react-icons/im";
+import { BackButton } from "../components/form/MiniComp";
 
 
 export default function SiteStatistics () {
@@ -33,7 +34,7 @@ export default function SiteStatistics () {
   return(
     <>
     <Slidebar />
-    <div className="flex w-full min-h-screen flex-col bg-[#f0f8ef] pb-10">
+    <div className="flex w-full min-h-screen flex-col bg-[#f0f8ef] pb-10 relative">
       <div className="w-full mx-auto flex flex-col mt-0 h-fit items-center justify-center px-4">
       <h1 className="mt-10 mb-6 font-serif text-2xl text-green-800 md:text-4xl lg:text-5xl font-bold text-center drop-shadow-sm">Total Available Products & Helped Students</h1>
       <div className="bg-white p-4 md:p-8 rounded-3xl shadow-2xl w-full lg:w-[90%] xl:w-[85%] h-[400px] md:h-[600px] flex items-center justify-center border border-green-100">
@@ -199,6 +200,9 @@ export default function SiteStatistics () {
         )}
       </div>
       </div>
+      </div>
+      <div className='absolute top-5 left-15'>
+            <BackButton to='/yourSchool'></BackButton>
       </div>
     </div>
     </>

@@ -179,3 +179,11 @@ export function ErrorPage({message = "An Error Occurred", error }) {
       </div>
     )
 }
+
+
+export function sendTopOfPage() {
+    window.scrollTo({
+            top:0,
+            behavior: 'instant'
+          })
+}

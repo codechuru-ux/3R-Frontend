@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getAllSchool, getSchoolLeaderBoard } from "./form/api";
-import { Loading } from "./form/MiniComp";
+import { Loading, sendTopOfPage } from "./form/MiniComp";
+import { Link } from "react-router-dom";
 
 export default function SchoolDetail() {
   const [schoolData, setSchoolData] = useState([]);
@@ -76,9 +77,10 @@ export default function SchoolDetail() {
           const isTopThree = index < 3;
 
           return (
-            <a
+            <Link
               key={school._id}
-              href={`/schoolPage?id=${school._id}`}
+              to={`/schoolPage?id=${school._id}`}
+              onClick={sendTopOfPage}
               className={`block transform transition-all duration-300 hover:scale-105 hover:shadow-2xl rounded-lg shadow-md ${
                 isTopThree ? 'bg-yellow-50 border-2 border-yellow-200' : 'bg-white'
               }`}
@@ -100,7 +102,7 @@ export default function SchoolDetail() {
                   {school.totalProducts}
                 </div>
               </div>
-            </a>
+            </Link>
           );
         })}
       </div>

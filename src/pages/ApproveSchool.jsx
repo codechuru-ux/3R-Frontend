@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Slidebar from '../components/Slidebar';
 import { approveSchool, getUnapprovedSchools } from '../components/form/api';
-import { Loading } from '../components/form/MiniComp';
+import { BackButton, Loading } from '../components/form/MiniComp';
 
 
 const ApproveSchool = () => {
@@ -54,7 +54,7 @@ const ApproveSchool = () => {
   return (
      <>
       <Slidebar />
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 relative">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
             <h1 className="text-3xl font-bold leading-tight text-gray-900">School Approval Queue</h1>
@@ -139,6 +139,9 @@ const ApproveSchool = () => {
           </div>
         )}
       </div>
+<div className='absolute top-5 left-15'>
+      <BackButton to='/yourSchool'></BackButton>
+</div>
     </div>
     </>
   );

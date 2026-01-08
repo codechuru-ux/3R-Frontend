@@ -1,4 +1,4 @@
-import React, { useState, Link } from "react";
+import React, { useState } from "react";
 import { TfiMenuAlt } from "react-icons/tfi";
 import { IoClose } from "react-icons/io5";
 import { IoChevronBackCircle } from "react-icons/io5";
@@ -12,6 +12,8 @@ import { FaFileContract } from "react-icons/fa6";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { RiArrowDropUpLine } from "react-icons/ri";
 import { MdAdd } from "react-icons/md";
+import { Link } from "react-router-dom";
+import { sendTopOfPage } from "./form/MiniComp";
 
 const Logo = "/images/Logo.png";
 
@@ -36,7 +38,7 @@ function Slidebar () {
         <a href="https://education.rajasthan.gov.in" className='z-20' target="_blank"><img className="max-w-full max-h-full" src={Logo} alt="" /></a>
       </div>
       <div className="flex justify-between hover:scale-105 transition-all duration-700 ease-in-out px-2 py-2 shrink-0">
-        <a href="/" className='font-extrabold rounded-lg py-2 px-6 text-2xl text-green-900 z-20'>CODE <span className='text-yellow-600 font-extrabold'>चूरू</span></a>
+        <Link to="/" onClick={sendTopOfPage} className='font-extrabold rounded-lg py-2 px-6 text-2xl text-green-900 z-20'>CODE <span className='text-yellow-600 font-extrabold'>चूरू</span></Link>
       </div>
       {!isOpen && (
         <div onClick={openMenu} className="xl:hidden text-green-900 cursor-pointer">
@@ -111,9 +113,9 @@ function Slidebar () {
 
       
       <div className="hidden xl:flex gap-4 justify-center items-center h-full">
-        <a href="/home" className='group flex items-center px-6 py-3 text-lg font-semibold text-emerald-800 transition-all duration-300 bg-black/5 backdrop-blur-md border border-white/40 rounded-xl shadow-md hover:bg-white/20 hover:text-emerald-950 hover:scale-105 hover:shadow-lg hover:shadow-emerald-300/50 transform'><span className="mr-2 text-emerald-700 transition-transform duration-300 group-hover:scale-110"><FaHome /></span> HOME</a>
-       {pathName !== '/' && <a className='group flex items-center px-6 py-3 text-lg font-semibold text-emerald-800 transition-all duration-300 bg-black/5 backdrop-blur-md border border-white/40 rounded-xl shadow-md hover:bg-white/20 hover:text-emerald-950 hover:scale-105 hover:shadow-lg hover:shadow-emerald-300/50 transform' href="/yourSchool"><span className="mr-2 text-emerald-700 transition-transform duration-300 group-hover:scale-110"><FaSchool /></span>ADMIN PANEL</a> }
-        <a className='group flex items-center px-6 py-3 text-lg font-semibold text-emerald-800 transition-all duration-300 bg-black/5 backdrop-blur-md border border-white/40 rounded-xl shadow-md hover:bg-white/20 hover:text-emerald-950 hover:scale-105 hover:shadow-lg hover:shadow-emerald-300/50 transform' href="/schoolContribution"><span className="mr-2 text-emerald-700 transition-transform duration-300 group-hover:scale-110"><FaFileContract /></span> LEADERBOARD</a>
+        <Link to="/home" onClick={sendTopOfPage} className='group flex items-center px-6 py-3 text-lg font-semibold text-emerald-800 transition-all duration-300 bg-black/5 backdrop-blur-md border border-white/40 rounded-xl shadow-md hover:bg-white/20 hover:text-emerald-950 hover:scale-105 hover:shadow-lg hover:shadow-emerald-300/50 transform'><span className="mr-2 text-emerald-700 transition-transform duration-300 group-hover:scale-110"><FaHome /></span> HOME</Link>
+       {pathName !== '/' && <Link to="/yourSchool" onClick={sendTopOfPage} className='group flex items-center px-6 py-3 text-lg font-semibold text-emerald-800 transition-all duration-300 bg-black/5 backdrop-blur-md border border-white/40 rounded-xl shadow-md hover:bg-white/20 hover:text-emerald-950 hover:scale-105 hover:shadow-lg hover:shadow-emerald-300/50 transform' ><span className="mr-2 text-emerald-700 transition-transform duration-300 group-hover:scale-110"><FaSchool /></span>ADMIN PANEL</Link> }
+        <Link to="/schoolContribution" onClick={sendTopOfPage} className='group flex items-center px-6 py-3 text-lg font-semibold text-emerald-800 transition-all duration-300 bg-black/5 backdrop-blur-md border border-white/40 rounded-xl shadow-md hover:bg-white/20 hover:text-emerald-950 hover:scale-105 hover:shadow-lg hover:shadow-emerald-300/50 transform' ><span className="mr-2 text-emerald-700 transition-transform duration-300 group-hover:scale-110"><FaFileContract /></span> LEADERBOARD</Link>
 
         <div className="relative group">
           <div onClick={openDropdown} className='group flex items-center px-6 py-3 text-lg font-semibold text-emerald-800 transition-all duration-300 bg-black/5 backdrop-blur-md border border-white/40 rounded-xl shadow-md hover:bg-white/20 hover:text-emerald-950 hover:scale-105 hover:shadow-lg hover:shadow-emerald-300/50 transform cursor-pointer'>
@@ -124,9 +126,9 @@ function Slidebar () {
 
         {!localStorage.getItem('token') && <div className="flex items-center justify-center pl-6">
           <div className="border-l-2 h-8 border-emerald-300/60"></div>
-          <a href="/schoolRegister" className="ml-8 group flex items-center px-8 py-3 text-base font-bold tracking-wide text-green-800 transition-all duration-300 rounded-md border border-green-400 shadow-lg hover:shadow-xl hover:shadow-emerald-400/30 hover:scale-105 transform">
+          <Link to="/schoolRegister" onClick={sendTopOfPage} className="ml-8 group flex items-center px-8 py-3 text-base font-bold tracking-wide text-green-800 transition-all duration-300 rounded-md border border-green-400 shadow-lg hover:shadow-xl hover:shadow-emerald-400/30 hover:scale-105 transform">
             <span className="mr-2 transition-transform duration-300 group-hover:scale-110"><MdAdd /></span> REGISTER
-          </a>
+          </Link>
         </div>}
       </div>
 
@@ -138,18 +140,18 @@ function Slidebar () {
     <div className="fixed top-20 right-0 -translate-x-1/2 w-80 z-99999 rounded-3xl border border-white/30 shadow-2xl backdrop-blur-md bg-emerald-50/5">
       <div className="p-2">
         <div className="flex flex-col gap-1">
-          <a className='group/item flex items-center gap-4 rounded-2xl px-4 py-3 text-lg font-semibold transition-all duration-300 hover:bg-emerald-500/20 hover:shadow-inner' href="/inspiration">
+          <Link to="/inspiration" onClick={sendTopOfPage} className='group/item flex items-center gap-4 rounded-2xl px-4 py-3 text-lg font-semibold transition-all duration-300 hover:bg-emerald-500/20 hover:shadow-inner' >
             <span className="rounded-lg bg-yellow-500/10 p-3 text-yellow-400 ring-1 ring-yellow-400/20 transition-all duration-300 group-hover/item:bg-yellow-500/20 group-hover/item:text-yellow-500 group-hover/item:scale-110"><GiInspiration size={24} /></span>
             <span className="transition-transform duration-300 text-green-800 group-hover/item:translate-x-1 ">OUR INSPIRATION</span>
-          </a>
-          <a className='group/item flex items-center gap-4 rounded-2xl px-4 py-3 text-lg font-semibold transition-all duration-300 hover:bg-emerald-500/20 hover:shadow-inner' href="/initiatives">
+          </Link>
+          <Link to="/initiatives" onClick={sendTopOfPage} className='group/item flex items-center gap-4 rounded-2xl px-4 py-3 text-lg font-semibold transition-all duration-300 hover:bg-emerald-500/20 hover:shadow-inner' >
             <span className="rounded-lg bg-emerald-500/10 p-3 text-emerald-400 ring-1 ring-emerald-400/20 transition-all duration-300 group-hover/item:bg-emerald-500/20 group-hover/item:text-emerald-500 group-hover/item:scale-110"><PiStepsFill size={24} /></span>
             <span className="transition-transform duration-300 text-green-800 group-hover/item:translate-x-1 ">INITIATIVES</span>
-          </a>
-          <a className='group/item flex items-center gap-4 rounded-2xl px-4 py-3 text-lg font-semibold transition-all duration-300 hover:bg-emerald-500/20 hover:shadow-inner' href="/developer">
+          </Link>
+          <Link to="/developer" onClick={sendTopOfPage} className='group/item flex items-center gap-4 rounded-2xl px-4 py-3 text-lg font-semibold transition-all duration-300 hover:bg-emerald-500/20 hover:shadow-inner' >
             <span className="rounded-lg bg-gray-500/10 p-3 text-gray-400 ring-1 ring-gray-400/20 transition-all duration-300 group-hover/item:bg-gray-500/20 group-hover/item:text-gray-500 group-hover/item:scale-110"><MdDeveloperMode size={24} /></span>
             <span className="transition-transform duration-300  text-green-800 group-hover/item:translate-x-1 ">DEVELOPERs</span>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

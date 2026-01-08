@@ -5,6 +5,7 @@ import DropDown from '../components/form/DropDown';
 import { Chart as ChartJS, defaults} from 'chart.js/auto';
 import { Bar } from 'react-chartjs-2';
 import { ImSpinner10 } from "react-icons/im";
+import { BackButton } from '../components/form/MiniComp';
 
 export default function ViewAllSchool() {
   const [schools, setSchools] = useState([]);
@@ -168,7 +169,7 @@ export default function ViewAllSchool() {
   return (
     <>
       <Slidebar />
-      <div className="p-4 min-h-screen items-center flex flex-col mt-0 w-full bg-[#f0f8ef]">
+      <div className="p-4 min-h-screen items-center flex flex-col mt-0 w-full bg-[#f0f8ef] relative">
       <div className="xl:max-w-[80%] min-w-full xl:min-w-[80%] bg-white p-8 rounded-2xl shadow-xl border border-green-100 mt-10">
         <DropDown
           inputClass="w-full border-2 border-green-100 bg-white text-gray-700 rounded-xl px-4 py-3 focus:outline-none focus:border-green-500 focus:ring-4 focus:ring-green-50 transition-all duration-300 shadow-sm hover:border-green-300 cursor-pointer placeholder-transparent peer"
@@ -221,6 +222,9 @@ export default function ViewAllSchool() {
             </div>
           </div>
         )}
+        <div className='absolute top-10 left-6'>
+              <BackButton to='/yourSchool'></BackButton>
+        </div>
       </div>
     </>
   )

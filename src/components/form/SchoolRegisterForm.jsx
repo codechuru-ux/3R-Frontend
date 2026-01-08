@@ -6,11 +6,11 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup';
 import FormButton from "./FormButton";
 import { postRegisterSchool } from "./api";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import DropDown from './DropDown';
 import { FaBackward } from "react-icons/fa";
 import FormLiquidGlass from "./FormLiquidGlass";
-import { BackButton } from "./MiniComp";
+import { BackButton, sendTopOfPage } from "./MiniComp";
 function SchoolRegisterForm({ showAlert }) {
       const navigation = useNavigate();
 
@@ -145,7 +145,7 @@ return (
             </div>
 
             <p className="text-sm text-center text-gray-600 mt-8">
-              Already have an account? <a className="font-medium text-green-600 hover:text-green-500 hover:underline" href="/schoolLogin">Log in here</a>
+              Already have an account? <Link to="/schoolLogin" onClick={sendTopOfPage} className="font-medium text-green-600 hover:text-green-500 hover:underline" >Log in here</Link>
             </p>
           </Form>
           <BackButton className="mt-6"/>

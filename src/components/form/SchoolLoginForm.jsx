@@ -5,10 +5,10 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup';
 import FormButton from "./FormButton";
 import { postLoginSchool } from "./api";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaBackward } from "react-icons/fa";
 import Slidebar from "../Slidebar";
-import { BackButton } from "./MiniComp";
+import { BackButton, sendTopOfPage } from "./MiniComp";
 
 function SchoolLoginForm({ showAlert }) {
       const navigate = useNavigate()
@@ -108,7 +108,7 @@ return (
             </div>
 
             <p className="text-sm text-center text-gray-600 pt-4">
-              Don't have an account? <a className="font-medium text-green-600 hover:text-green-500 hover:underline" href="/schoolRegister">Register here</a>
+              Don't have an account? <Link to="/schoolRegister" onClick={sendTopOfPage} className="font-medium text-green-600 hover:text-green-500 hover:underline" >Register here</Link>
             </p>
           </Form>
           <BackButton className="mt-6"/>

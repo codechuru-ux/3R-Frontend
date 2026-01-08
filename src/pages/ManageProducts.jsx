@@ -3,6 +3,7 @@ import { getAllSchool, getSchoolProducts, deleteProduct } from '../components/fo
 import Slidebar from '../components/Slidebar';
 import { getThumbnailUrl } from '../utils/fileUtils';
 import DropDown from '../components/form/DropDown';
+import { BackButton } from '../components/form/MiniComp';
 
 
 const ManageProducts = ({ showAlert }) => {
@@ -42,7 +43,7 @@ const ManageProducts = ({ showAlert }) => {
   return (
     <>
       <Slidebar />
-      <div className={products.length === 0 ? "w-screen h-screen container mx-auto p-4" : "container mx-auto p-4"}>
+      <div className={products.length === 0 ? "w-screen h-screen container mx-auto p-4" : "container mx-auto p-4 relative"}>
         <h1 className="text-2xl font-bold mb-4">Manage Products</h1>
         <div className="mb-4">
           <DropDown
@@ -82,6 +83,9 @@ const ManageProducts = ({ showAlert }) => {
               </div>
             </div>
           ))}
+        </div>
+        <div className='absolute top-23 left-2'>
+              <BackButton to='/yourSchool'></BackButton>
         </div>
       </div>
     </>

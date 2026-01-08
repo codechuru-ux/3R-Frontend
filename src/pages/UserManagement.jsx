@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Slidebar from "../components/Slidebar";
 import { getAllSchool, deleteSchool } from "../components/form/api";
 import { ImSpinner10 } from "react-icons/im";
-import { Loading } from "../components/form/MiniComp";
+import { BackButton, Loading } from "../components/form/MiniComp";
 
 
 export default function UserManagement(){
@@ -51,7 +51,7 @@ export default function UserManagement(){
   return(
     <>
     <Slidebar />
-    <div className="min-h-screen w-full bg-[#f0f8ef] p-4 md:p-8">
+    <div className="min-h-screen w-full bg-[#f0f8ef] p-4 md:p-8 relative">
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-opacity-50 backdrop-blur-sm">
           <div className="bg-white rounded-lg shadow-lg p-6 w-96">
@@ -135,6 +135,9 @@ export default function UserManagement(){
       {!loading && filteredSchools.length === 0 && (
         <div className="text-center text-gray-500 text-xl">No schools found</div>
       )}
+      <div className='absolute top-10 left-15'>
+            <BackButton to='/yourSchool'></BackButton>
+      </div>
     </div>
     </>
   );
