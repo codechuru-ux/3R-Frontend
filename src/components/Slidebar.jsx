@@ -31,7 +31,7 @@ function Slidebar () {
     <>
     <header className="sticky top-0 z-50">
       
-      <nav className={"bg-transparent backdrop-blur-md shadow-lg shadow-emerald-200/10 border-b border-white/20 flex justify-between items-center h-20 px-4 " + (localStorage.getItem('token') && "2xl:pr-40") }>
+      <nav className={"bg-transparent backdrop-blur-md shadow-lg shadow-emerald-200/10 border-b border-white/20 flex justify-between items-center h-20 px-4 " + (localStorage.getItem('token') && "xl:pr-40") }>
        <div className="max-w-[60px]">
         <a href="https://education.rajasthan.gov.in" className='z-20' target="_blank"><img className="max-w-full max-h-full" src={Logo} alt="" /></a>
       </div>
@@ -39,7 +39,7 @@ function Slidebar () {
         <a href="/" className='font-extrabold rounded-lg py-2 px-6 text-2xl text-green-900 z-20'>CODE <span className='text-yellow-600 font-extrabold'>चूरू</span></a>
       </div>
       {!isOpen && (
-        <div onClick={openMenu} className="2xl:hidden text-green-900 cursor-pointer">
+        <div onClick={openMenu} className="xl:hidden text-green-900 cursor-pointer">
           <TfiMenuAlt size={30} />
         </div>
       )}
@@ -47,14 +47,14 @@ function Slidebar () {
       
       {isOpen ? (
 
-        <div className="bg-green-800 overflow-y-hidden fixed z-10 top-16 left-0 w-[400px] 2xl:hidden lg:w-[500px] opacity-99 rounded-r-3xl h-[calc(100vh-4rem)] flex items-center flex-col gap-10 ease-in duration-700">
+        <div className="bg-green-800 overflow-y-hidden fixed z-10 top-16 left-0 w-[400px] xl:hidden lg:w-[500px] opacity-99 rounded-r-3xl h-[calc(100vh-4rem)] flex items-center flex-col gap-10 ease-in duration-700">
         <div className="w-full items-center flex flex-col">
           <h1 className="text-6xl font-serif font-bold mr-6 mt-5 mb-4">Menu</h1>
           <div className="w-full h-0.5 bg-green-100"></div>
         </div>
         <div className="absolute top-12 right-5">
           {isOpen && (
-            <div onClick={openMenu} className="2xl:hidden text-green-100 cursor-pointer z-20">
+            <div onClick={openMenu} className="xl:hidden text-green-100 cursor-pointer z-20">
               <IoChevronBackCircle size={30} />
             </div>
           )}
@@ -104,13 +104,13 @@ function Slidebar () {
           )}
 
           {isOpen && (
-            <div onClick={openMenu} className="2xl:hidden text-green-900 cursor-pointer z-20">
+            <div onClick={openMenu} className="xl:hidden text-green-900 cursor-pointer z-20">
               <IoClose size={35} />
             </div>
           )}
 
       
-      <div className="hidden 2xl:flex gap-4 justify-center items-center h-full">
+      <div className="hidden xl:flex gap-4 justify-center items-center h-full">
         <a href="/home" className='group flex items-center px-6 py-3 text-lg font-semibold text-emerald-800 transition-all duration-300 bg-black/5 backdrop-blur-md border border-white/40 rounded-xl shadow-md hover:bg-white/20 hover:text-emerald-950 hover:scale-105 hover:shadow-lg hover:shadow-emerald-300/50 transform'><span className="mr-2 text-emerald-700 transition-transform duration-300 group-hover:scale-110"><FaHome /></span> HOME</a>
        {pathName !== '/' && <a className='group flex items-center px-6 py-3 text-lg font-semibold text-emerald-800 transition-all duration-300 bg-black/5 backdrop-blur-md border border-white/40 rounded-xl shadow-md hover:bg-white/20 hover:text-emerald-950 hover:scale-105 hover:shadow-lg hover:shadow-emerald-300/50 transform' href="/yourSchool"><span className="mr-2 text-emerald-700 transition-transform duration-300 group-hover:scale-110"><FaSchool /></span>ADMIN PANEL</a> }
         <a className='group flex items-center px-6 py-3 text-lg font-semibold text-emerald-800 transition-all duration-300 bg-black/5 backdrop-blur-md border border-white/40 rounded-xl shadow-md hover:bg-white/20 hover:text-emerald-950 hover:scale-105 hover:shadow-lg hover:shadow-emerald-300/50 transform' href="/schoolContribution"><span className="mr-2 text-emerald-700 transition-transform duration-300 group-hover:scale-110"><FaFileContract /></span> LEADERBOARD</a>
