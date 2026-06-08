@@ -107,7 +107,7 @@ console.log('school data',schoolData);
     };
   }, [showPopup]);
 
-  const filteredSchools = schoolData.filter((school) =>
+  const filteredSchools = (schoolData || []).filter((school) =>
     String(school.schoolName).toLowerCase().includes(searchQuery.toLowerCase())
   );
 
